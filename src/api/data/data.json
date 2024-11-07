@@ -1,0 +1,88 @@
+{
+  "phones": [
+    {
+      "id": 1,
+      "model": "Apple Iphone 12",
+      "brand": "Apple",
+      "releaseDate": 2020,
+      "screenDiagonal": 6.1,
+      "countryOfOrigin": "Китай",
+      "memory": 128,
+      "screenRefreshRate": 60,
+      "nfc": false,
+      "esim": true,
+      "wirelessСharging": true,
+      "price": 81990
+    },
+    {
+      "id": 2,
+      "model": "Xiaomi Mi 11 Lite",
+      "brand": "Xiaomi",
+      "releaseDate": 2021,
+      "screenDiagonal": 6.55,
+      "countryOfOrigin": "Китай",
+      "memory": 128,
+      "screenRefreshRate": 90,
+      "nfc": true,
+      "esim": true,
+      "wirelessСharging": false,
+      "price": 27490
+    },
+    {
+      "id": 3,
+      "model": "Samsung Galaxy A72",
+      "brand": "Samsung",
+      "releaseDate": 2021,
+      "screenDiagonal": 6.7,
+      "countryOfOrigin": "Вьетнам",
+      "memory": 128,
+      "screenRefreshRate": 90,
+      "nfc": true,
+      "esim": false,
+      "wirelessСharging": true,
+      "price": 32890
+    },
+    {
+      "id": 4,
+      "model": "Samsung Galaxy S21",
+      "brand": "Samsung",
+      "releaseDate": 2021,
+      "screenDiagonal": 6.2,
+      "countryOfOrigin": "Вьетнам",
+      "memory": 256,
+      "screenRefreshRate": 120,
+      "nfc": true,
+      "esim": true,
+      "wirelessСharging": true,
+      "price": 55299
+    },
+    {
+      "id": 5,
+      "model": "Apple iPhone Xr",
+      "brand": "Apple",
+      "releaseDate": 2022,
+      "screenDiagonal": 6.1,
+      "countryOfOrigin": "Китай",
+      "memory": 256,
+      "screenRefreshRate": 90,
+      "nfc": true,
+      "esim": true,
+      "wirelessСharging": true,
+      "price": 29299
+    },
+    {
+      "id": 6,
+      "model": "Realme 8 Pro",
+      "brand": "Realme",
+      "releaseDate": 2021,
+      "screenDiagonal": 6.4,
+      "countryOfOrigin": "Китай",
+      "memory": 128,
+      "screenRefreshRate": 60,
+      "nfc": true,
+      "esim": true,
+      "wirelessСharging": false,
+      "price": 9000
+    }
+  ]
+}
