@@ -1,14 +1,13 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { builders } from 'prettier/doc';
 import data from '../../api/data/data.json';
 
 interface initialStateI {
   phone: phoneI[];
-  error: string | null;
 }
 
 interface phoneI {
   id: number;
+  phoneImage: string;
   model: string;
   brand: string;
   releaseDate: number;
@@ -24,13 +23,11 @@ interface phoneI {
 
 export const getPhones = createAsyncThunk('phonesSlice/phones', async () => {
   const response = await data;
-  console.log(response);
   return response;
 });
 
 const initialState: initialStateI = {
   phone: [],
-  error: null,
 };
 
 const phonesSlice = createSlice({
@@ -39,7 +36,7 @@ const phonesSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder.addCase(getPhones.fulfilled, (state, action) => {
-      state.phone = action.payload.phones;
+      state.phone = action.payload;
     });
   },
 });

@@ -14,7 +14,12 @@ function App() {
   return (
     <div className="App">
       {data.map((item) => {
-        return <div key={item.id}>{item.brand}</div>;
+        return (
+          <div key={item.id}>
+            <div>{item.brand}</div>
+            <img src={item.phoneImage} alt={item.model} />
+          </div>
+        );
       })}
     </div>
   );
