@@ -1,23 +1,23 @@
 import { useEffect } from 'react';
-import './App.css';
-import { useAppDispatch, useAppSelector } from './store/hooks';
-import { getPhones } from './store/slices/phonesSlice';
+import { getPhonesData } from './redux/slices/phonesSlice/phonesSlice';
+import { useAppSelector } from './redux/useAppSelector/useAppSelector';
+import { useAppDispatch } from './redux/hooks';
 
 function App() {
   const data = useAppSelector((state) => state.phones.phone);
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    dispatch(getPhones());
+    dispatch(getPhonesData());
   }, [dispatch]);
 
   return (
-    <div className="App">
+    <div>
       {data.map((item) => {
         return (
           <div key={item.id}>
-            <div>{item.brand}</div>
-            <img src={item.phoneImage} alt={item.model} />
+            <div>{item.name}</div>
+            <img src={item.image} alt={item.name} />
           </div>
         );
       })}
