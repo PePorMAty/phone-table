@@ -1,11 +1,14 @@
 import { useEffect } from 'react';
+
 import { getPhonesData } from './redux/slices/phonesSlice/phonesSlice';
 import { useAppSelector } from './redux/useAppSelector/useAppSelector';
-import { useAppDispatch } from './redux/hooks';
+import { useAppDispatch } from './redux/useAppDispatch/useAppDispatch';
+import getPhonesSelector from './redux/slices/phonesSlice/selectors/getPhonesSelector';
 
 function App() {
-  const data = useAppSelector((state) => state.phones.phone);
+  const { phones } = useAppSelector(getPhonesSelector);
   const dispatch = useAppDispatch();
+  console.log(phones);
 
   useEffect(() => {
     dispatch(getPhonesData());
@@ -13,7 +16,7 @@ function App() {
 
   return (
     <div>
-      {data.map((item) => {
+      {phones.map((item) => {
         return (
           <div key={item.id}>
             <div>{item.name}</div>

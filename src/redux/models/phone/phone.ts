@@ -1,11 +1,15 @@
-export interface phoneI {
+export interface InitialStatePhonesI {
+  phones: PhoneI[];
+}
+
+export interface PhoneI {
   id: number;
   name: string;
   image: string;
-  chars: charsI;
+  chars: CharsI;
 }
 
-interface charsI {
+interface CharsI {
   model: string;
   releaseDate: number;
   screenDiagonal: number;

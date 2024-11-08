@@ -1,4 +1,5 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
+
 import phonesSlice from './slices/phonesSlice/phonesSlice';
 
 export const store = configureStore({
