@@ -4,6 +4,7 @@ import { getPhonesData } from './redux/slices/phonesSlice/phonesSlice';
 import { useAppSelector } from './redux/useAppSelector/useAppSelector';
 import { useAppDispatch } from './redux/useAppDispatch/useAppDispatch';
 import getPhonesSelector from './redux/slices/phonesSlice/selectors/getPhonesSelector';
+import Header from './components/header/Header';
 
 function App() {
   const { phones } = useAppSelector(getPhonesSelector);
@@ -15,16 +16,10 @@ function App() {
   }, [dispatch]);
 
   return (
-    <div>
-      {phones.map((item) => {
-        return (
-          <div key={item.id}>
-            <div>{item.name}</div>
-            <img src={item.image} alt={item.name} />
-          </div>
-        );
-      })}
-    </div>
+    <>
+      <Header />
+      <div className="container"></div>
+    </>
   );
 }
 
