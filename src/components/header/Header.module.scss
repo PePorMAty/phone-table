@@ -1,6 +1,6 @@
 .header {
   padding: 42px 0;
-
+  margin-bottom: 60px;
   border-bottom: 1px solid #a6a5a9;
 }
 
@@ -31,6 +31,7 @@
 
 .profileLink {
   position: relative;
+  margin-right: 40px;
   &::after {
     content: '';
     position: absolute;
