@@ -8,7 +8,7 @@ const Сomparison = () => {
     <div>
       <div className={style.titleWrapper}>
         <h2 className={style.title}>Смартфоны</h2>
-        <div className={style.pagination}>Отобразить товары 2 3 4 5 6</div>
+        <div className={style.select}>Отобразить товары 2 3 4 5 6</div>
       </div>
       <TableHead />
       <TableBody />
