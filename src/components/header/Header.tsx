@@ -1,6 +1,7 @@
+import { ProfileIcon } from '../../assets/icons';
 import style from './Header.module.scss';
 
-const Header = () => {
+export const Header = () => {
   return (
     <header className={style.header}>
       <div className={style.wrapper}>
@@ -13,11 +14,12 @@ const Header = () => {
           </li>
           <li className={`${style.navMenu__link} ${style.profileLink}`}>
             <a href="#">Личный кабинет</a>
+            <a href="#">
+              <ProfileIcon />
+            </a>
           </li>
         </ul>
       </div>
     </header>
   );
 };
-
-export default Header;

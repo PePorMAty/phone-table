@@ -30,15 +30,10 @@
 }
 
 .profileLink {
-  position: relative;
-  margin-right: 40px;
-  &::after {
-    content: '';
-    position: absolute;
-    background-image: url('../../assets/profile-logo.svg');
-    width: 20px;
-    height: 20px;
+  display: flex;
+  & a:nth-child(2) {
     margin-left: 20px;
+    position: relative;
     top: -4px;
   }
 }

@@ -2,7 +2,7 @@ import style from './TableHead.module.scss';
 
 import phone from '../../assets/iphone12.png';
 
-const TableHead = () => {
+export const TableHead = () => {
   return (
     <div className={style.tableHead}>
       <div className={style.inputWrapper}>
@@ -26,5 +26,3 @@ const TableHead = () => {
     </div>
   );
 };
-
-export default TableHead;

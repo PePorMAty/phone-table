@@ -1,6 +1,6 @@
 import style from './TableRow.module.scss';
 
-const TableRow = () => {
+export const TableRow = () => {
   return (
     <div className={style.tableRow}>
       <div className={style.cellWrapper}>
@@ -12,5 +12,3 @@ const TableRow = () => {
     </div>
   );
 };
-
-export default TableRow;

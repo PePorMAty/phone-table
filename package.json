@@ -51,5 +51,8 @@
     "eslint-plugin-react": "^7.37.2",
     "globals": "^15.12.0",
     "typescript-eslint": "^8.13.0"
+  },
+  "rules": {
+    "react/react-in-jsx-scope": "off"
   }
 }

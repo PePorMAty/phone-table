@@ -1,9 +1,9 @@
-import TableBody from '../../components/table-body/TableBody';
-import TableHead from '../../components/table-head/TableHead';
+import { TableBody } from '../../components/tableBody';
+import { TableHead } from '../../components/tableHead';
 
-import style from './Comparison.module.scss';
+import style from './ComparisonPage.module.scss';
 
-const Сomparison = () => {
+export const ComparisonPage = () => {
   return (
     <div>
       <div className={style.titleWrapper}>
@@ -15,5 +15,3 @@ const Сomparison = () => {
     </div>
   );
 };
-
-export default Сomparison;

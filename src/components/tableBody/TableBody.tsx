@@ -1,8 +1,8 @@
-import TableRow from '../table-row/TableRow';
+import { TableRow } from '../tableRow';
 
 import style from './TableBody.module.scss';
 
-const TableBody = () => {
+export const TableBody = () => {
   return (
     <div className={style.tableBody}>
       <TableRow />
@@ -11,5 +11,3 @@ const TableBody = () => {
     </div>
   );
 };
-
-export default TableBody;

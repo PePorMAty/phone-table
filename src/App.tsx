@@ -1,15 +1,7 @@
-import Header from './components/header/Header';
-import Comparison from './pages/comparison/Сomparison';
+import Layout from './Layout';
 
 function App() {
-  return (
-    <>
-      <Header />
-      <div className="container">
-        <Comparison />
-      </div>
-    </>
-  );
+  return <Layout />;
 }
 
 export default App;
