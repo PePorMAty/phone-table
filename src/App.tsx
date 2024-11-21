@@ -1,4 +1,4 @@
-import { ComparisonPage } from './pages/comparison';
+import { ComparisonPage } from './pages/Сomparison';
 
 import { Layout } from './components/Layout';
 
