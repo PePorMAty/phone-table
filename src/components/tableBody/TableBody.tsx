@@ -1,4 +1,4 @@
-import { TableRow } from '../tableRow';
+import { TableRow } from './components/TableRow';
 
 import style from './TableBody.module.scss';
 
