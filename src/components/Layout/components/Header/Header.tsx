@@ -1,4 +1,4 @@
-import { ProfileIcon } from '../../assets/icons';
+import { ProfileIcon } from '../../../../assets/icons';
 import style from './Header.module.scss';
 
 export const Header = () => {

@@ -1,6 +1,6 @@
 import style from './TableHead.module.scss';
 
-import phone from '../../assets/iphone12.png';
+import phone from '../../../../assets/iphone12.png';
 
 export const TableHead = () => {
   return (
