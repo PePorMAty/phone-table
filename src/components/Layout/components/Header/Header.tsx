@@ -1,4 +1,5 @@
 import { ProfileIcon } from '../../../../assets/icons';
+
 import style from './Header.module.scss';
 
 export const Header = () => {
@@ -8,17 +9,21 @@ export const Header = () => {
         <a className={style.mainLink} href="#">
           Каталог
         </a>
-        <ul className={style.navMenu}>
-          <li className={style.navMenu__link}>
-            <a href="#">СРАВНЕНИЕ</a>
-          </li>
-          <li className={`${style.navMenu__link} ${style.profileLink}`}>
-            <a href="#">Личный кабинет</a>
-            <a href="#">
-              <ProfileIcon />
-            </a>
-          </li>
-        </ul>
+        <nav className={style.nav}>
+          <ul className={style.navList}>
+            <li className={style.item}>
+              <a href="#" className={style.link}>
+                СРАВНЕНИЕ
+              </a>
+            </li>
+            <li className={style.item}>
+              <a href="#" className={style.linkWithIcon}>
+                Личный кабинет
+                <ProfileIcon />
+              </a>
+            </li>
+          </ul>
+        </nav>
       </div>
     </header>
   );

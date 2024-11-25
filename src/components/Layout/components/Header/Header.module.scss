@@ -1,6 +1,7 @@
+@import '../../../../styles/variables.scss';
+
 .header {
   padding: 42px 0;
-  margin-bottom: 60px;
   border-bottom: 1px solid #a6a5a9;
 }
 
@@ -12,28 +13,30 @@
 }
 
 .mainLink {
-  color: #0d5adc;
+  color: $blue-color;
   font-weight: 900;
   cursor: pointer;
 }
 
-.navMenu {
+.navList {
   display: flex;
   gap: 48px;
   list-style: none;
   font-size: 12px;
-  padding: 2px 0;
+  align-items: center;
 }
 
-.navMenu__link {
+.item {
+  text-align: center;
+}
+
+.link {
   cursor: pointer;
 }
 
-.profileLink {
+.linkWithIcon {
+  cursor: pointer;
   display: flex;
-  & a:nth-child(2) {
-    margin-left: 20px;
-    position: relative;
-    top: -4px;
-  }
+  align-items: center;
+  gap: 20px;
 }
