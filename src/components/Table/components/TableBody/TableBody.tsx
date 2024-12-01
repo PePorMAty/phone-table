@@ -1,13 +1,12 @@
 import { TableRow } from './components/TableRow';
 
-import style from './TableBody.module.scss';
+import styles from './TableBody.module.scss';
 
 export const TableBody = () => {
   return (
-    <div className={style.tableBody}>
-      <TableRow />
-      <TableRow />
-      <TableRow />
+    <div className={styles.tableBody}>
+      <TableRow title={'Производитель'} />
+      <TableRow title={'Год релиза'} />
     </div>
   );
 };

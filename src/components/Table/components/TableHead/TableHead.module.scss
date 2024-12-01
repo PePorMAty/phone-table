@@ -1,4 +1,4 @@
-@import '../../../../styles/variables.scss';
+@use '../../../../styles/variables.scss' as *;
 
 .tableHead {
   display: flex;
@@ -6,7 +6,7 @@
 }
 
 .inputWrapper {
-  margin: auto 0 0 0;
+  align-self: flex-end;
 }
 
 .checkInput {
@@ -18,18 +18,4 @@
   font-weight: 400;
   color: $blue-color;
   margin-left: 14px;
-}
-
-.itemWrapper {
-  display: flex;
-  flex-direction: column;
-}
-
-.img {
-  max-width: 65px;
-  margin: 0 auto;
-}
-
-.name {
-  text-align: center;
 }

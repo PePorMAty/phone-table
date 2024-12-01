@@ -1,28 +1,25 @@
-import style from './TableHead.module.scss';
+import styles from './TableHead.module.scss';
+import commonStyles from '../../TableCommonStyles.module.scss';
 
 import phone from '../../../../assets/iphone12.png';
+import { TableHeadItem } from './components/TableHeadItem';
 
 export const TableHead = () => {
   return (
-    <div className={style.tableHead}>
-      <div className={style.inputWrapper}>
-        <input className={style.checkInput} type="checkbox" id="differences" />
-        <label className={style.label} htmlFor="differences">
+    <div className={styles.tableHead}>
+      <div
+        className={`${styles.inputWrapper} ${commonStyles.tableFirstColumn}`}
+      >
+        <input className={styles.checkInput} type="checkbox" id="differences" />
+        <label className={styles.label} htmlFor="differences">
           Показать различия
         </label>
       </div>
-      <div className={style.itemWrapper}>
-        <img className={style.img} src={phone} alt="phone" />
-        <p className={style.name}>Apple iPhone 12</p>
-      </div>
-      <div className={style.itemWrapper}>
-        <img className={style.img} src={phone} alt="phone" />
-        <p className={style.name}>Apple iPhone 12</p>
-      </div>
-      <div className={style.itemWrapper}>
-        <img className={style.img} src={phone} alt="phone" />
-        <p className={style.name}>Apple iPhone 12</p>
-      </div>
+      <ul className={commonStyles.tableItems}>
+        <TableHeadItem img={phone} name={'Apple Iphone 12'} altImg={'phone'} />
+        <TableHeadItem img={phone} name={'Apple Iphone 12'} altImg={'phone'} />
+        <TableHeadItem img={phone} name={'Apple Iphone 12'} altImg={'phone'} />
+      </ul>
     </div>
   );
 };
