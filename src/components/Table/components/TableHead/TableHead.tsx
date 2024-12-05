@@ -1,8 +1,10 @@
+import { TableHeadItem } from './components/TableHeadItem';
+import { Checkbox } from 'components/Checkbox';
+
 import styles from './TableHead.module.scss';
 import commonStyles from '../../TableCommonStyles.module.scss';
 
 import phone from '../../../../assets/iphone12.png';
-import { TableHeadItem } from './components/TableHeadItem';
 
 export const TableHead = () => {
   return (
@@ -10,7 +12,7 @@ export const TableHead = () => {
       <div
         className={`${styles.inputWrapper} ${commonStyles.tableFirstColumn}`}
       >
-        <input className={styles.checkInput} type="checkbox" id="differences" />
+        <Checkbox id={'differences'} />
         <label className={styles.label} htmlFor="differences">
           Показать различия
         </label>

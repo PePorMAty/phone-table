@@ -1,6 +1,7 @@
+import { TableRowItem } from './components/TableRowItem';
+
 import styles from './TableRow.module.scss';
 import commonStyles from '../../../../TableCommonStyles.module.scss';
-import { TableRowItem } from './components/TableRowItem';
 
 interface TableRowProps {
   title?: string;

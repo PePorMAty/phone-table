@@ -1,25 +1,25 @@
 import { ProfileIcon } from '../../../../assets/icons';
 import { PageContainer } from '../../../PageContainer';
 
-import style from './Header.module.scss';
+import styles from './Header.module.scss';
 
 export const Header = () => {
   return (
-    <header className={style.header}>
+    <header className={styles.header}>
       <PageContainer>
-        <div className={style.wrapper}>
-          <a className={style.mainLink} href="/#">
+        <div className={styles.wrapper}>
+          <a className={styles.mainLink} href="/#">
             Каталог
           </a>
-          <nav className={style.nav}>
-            <ul className={style.navList}>
-              <li className={style.item}>
-                <a href="/#" className={style.link}>
+          <nav className={styles.nav}>
+            <ul className={styles.navList}>
+              <li className={styles.item}>
+                <a href="/#" className={styles.link}>
                   СРАВНЕНИЕ
                 </a>
               </li>
-              <li className={style.item}>
-                <a href="/#" className={style.linkWithIcon}>
+              <li className={styles.item}>
+                <a href="/#" className={styles.linkWithIcon}>
                   Личный кабинет
                   <ProfileIcon />
                 </a>
