@@ -1,10 +1,11 @@
+import { HTMLAttributes } from 'react';
 import styles from './Checkbox.module.scss';
 
-type CheckboxProps = {
+interface CheckboxProps extends HTMLAttributes<HTMLInputElement> {
   id?: string;
   additionalClassName?: string;
   isActive?: boolean;
-};
+}
 
 export const Checkbox = ({
   id,
