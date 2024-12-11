@@ -1,0 +1,40 @@
+@use '../../../../styles/variables.scss' as *;
+
+.header {
+  padding: 42px 0;
+  border-bottom: 1px solid #a6a5a9;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.mainLink {
+  color: $blue-color;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.navList {
+  display: flex;
+  gap: 48px;
+  list-style: none;
+  font-size: 12px;
+  align-items: center;
+}
+
+.item {
+  text-align: center;
+}
+
+.link {
+  cursor: pointer;
+}
+
+.linkWithIcon {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}

@@ -1,0 +1,12 @@
+@use '../../../../styles/variables.scss' as *;
+
+.titleWrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.title {
+  font-size: 48px;
+  font-weight: bold;
+  color: $title-color;
+}

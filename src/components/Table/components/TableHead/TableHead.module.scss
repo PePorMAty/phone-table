@@ -1,0 +1,21 @@
+@use '../../../../styles/variables.scss' as *;
+
+.tableHead {
+  display: flex;
+  justify-content: space-between;
+}
+
+.inputWrapper {
+  align-self: flex-end;
+}
+
+.checkInput {
+  cursor: pointer;
+}
+
+.label {
+  cursor: pointer;
+  font-weight: 400;
+  color: $blue-color;
+  margin-left: 14px;
+}

@@ -1,0 +1,15 @@
+.tableFirstColumn {
+  min-width: 255px;
+}
+
+.tableItems {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100%;
+
+  .item {
+    width: 100%;
+    text-align: center;
+  }
+}
