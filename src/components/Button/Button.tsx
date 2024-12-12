@@ -17,7 +17,8 @@ export const Button = ({
   ...rest
 }: ButtonProps) => {
   const createClassName = () => {
-    return `${additionalClassName} ${isActive ? styles.active : ''}`;
+    const className = `${additionalClassName ?? ''} ${isActive ? styles.active : ''}`;
+    return className.trim() || undefined;
   };
 
   return (
