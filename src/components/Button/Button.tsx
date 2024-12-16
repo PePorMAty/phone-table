@@ -1,4 +1,4 @@
-import { HTMLAttributes, RefObject } from 'react';
+import { HTMLAttributes, ReactNode, RefObject } from 'react';
 
 import styles from './Button.module.scss';
 
@@ -6,7 +6,7 @@ interface ButtonProps extends HTMLAttributes<HTMLButtonElement> {
   isActive?: boolean;
   additionalClassName?: string;
   btnRef?: RefObject<HTMLButtonElement>;
-  children: React.ReactNode;
+  children: ReactNode;
 }
 
 export const Button = ({
@@ -16,13 +16,22 @@ export const Button = ({
   children,
   ...rest
 }: ButtonProps) => {
-  const createClassName = () => {
-    const className = `${additionalClassName ?? ''} ${isActive ? styles.active : ''}`;
-    return className.trim() || undefined;
+  const createButtonClassname = () => {
+    let buttonClassname = styles.button;
+
+    if (additionalClassName) {
+      buttonClassname = `${buttonClassname} ${additionalClassName}`;
+    }
+
+    if (isActive) {
+      buttonClassname = `${buttonClassname} ${styles.active}`;
+    }
+
+    return buttonClassname;
   };
 
   return (
-    <button ref={btnRef} className={createClassName()} {...rest}>
+    <button ref={btnRef} className={createButtonClassname()} {...rest}>
       {Boolean(children) && <span>{children}</span>}
     </button>
   );
