@@ -1,6 +1,16 @@
 @use '../../../../../styles/variables.scss' as *;
 
-.select {
+.itemsCount {
   color: $blue-color;
   font-weight: 400;
+}
+
+.itemsCount {
+  display: flex;
+  gap: 10px;
+}
+
+.list {
+  display: flex;
+  gap: 10px;
 }
