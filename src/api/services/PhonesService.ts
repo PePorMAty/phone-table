@@ -1,12 +1,22 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-const baseUrl = '../../api';
+import { PhoneI } from 'store/models/phone/phone';
+
+import { baseUrl } from '../api';
+
+interface GetPhonesDataResponse {
+  phonesData: PhoneI[];
+}
 
 export const PhonesService = {
-  getPhones: createAsyncThunk('phonesSlice/phones', async () => {
-    const response = await fetch(`${baseUrl}/data.json`);
-    return response.json();
-  }),
+  getPhones: createAsyncThunk(
+    'phonesSlice/phones',
+    async (): Promise<GetPhonesDataResponse> => {
+      const response = await baseUrl;
+      const phonesData: PhoneI[] = await response;
+      return { phonesData };
+    },
+  ),
 };
 
 export default PhonesService;

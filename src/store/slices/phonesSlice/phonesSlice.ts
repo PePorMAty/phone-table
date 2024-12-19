@@ -17,7 +17,7 @@ const phonesSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder.addCase(PhonesService.getPhones.fulfilled, (state, action) => {
-      state.phones = action.payload;
+      state.phones = action.payload.phonesData;
     });
   },
 });
