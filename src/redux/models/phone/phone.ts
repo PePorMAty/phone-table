@@ -1,5 +1,8 @@
 export interface InitialStatePhonesI {
   phones: PhoneI[];
+  isError: boolean;
+  isLoading: boolean;
+  displayPhonesCount: number;
 }
 
 export interface PhoneI {
