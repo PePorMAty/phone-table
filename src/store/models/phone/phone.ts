@@ -3,6 +3,7 @@ export interface InitialStatePhonesI {
   isError: boolean;
   isLoading: boolean;
   displayPhonesCount: number;
+  tableRows: TableRowsI[];
 }
 
 export interface PhoneI {
@@ -23,4 +24,10 @@ interface CharsI {
   esim: boolean;
   wirelessСharging: boolean;
   price: number;
+}
+
+interface TableRowsI {
+  rowName: string;
+  rowTitle: string;
+  rowChars: CharsI[];
 }
