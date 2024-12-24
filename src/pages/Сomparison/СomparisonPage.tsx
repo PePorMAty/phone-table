@@ -1,26 +1,20 @@
 import { useEffect } from 'react';
 
-import { useSelector } from 'react-redux';
-
 import { useAppDispatch } from 'store/useAppDispatch/useAppDispatch';
 
-import PhonesService from 'api/services/PhonesService';
-
-import {
-  selectDisplayedPhones,
-  selectdisplayedPhonesCount,
-  selectTableRows,
-} from 'store/slices/phonesSlice/phonesSlice';
+import { PhonesService } from 'api/services/PhonesService';
 
 import { PageContainer } from '../../components/PageContainer';
 import { Table } from '../../components/Table';
 
 import styles from './ComparisonPage.module.scss';
+import { selectDisplayedPhones } from 'store/slices/phonesSlice/phonesSlice';
+import { useAppSelector } from 'store/useAppSelector/useAppSelector';
 
 export const ComparisonPage = () => {
-  const displayedPhones = useSelector(selectDisplayedPhones);
-  const displayedPhonesCount = useSelector(selectdisplayedPhonesCount);
-  const tableRows = useSelector(selectTableRows);
+  const displayedPhones = useAppSelector(selectDisplayedPhones);
+  /* const displayedPhonesCount = useSelector(selectdisplayedPhonesCount);
+  const tableRows = useSelector(selectTableRows); */
 
   const dispatch = useAppDispatch();
 

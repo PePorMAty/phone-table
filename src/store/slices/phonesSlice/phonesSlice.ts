@@ -35,10 +35,19 @@ const initialState: InitialStatePhonesI = {
   displayPhonesCount: 3,
 };
 
-const phonesSlice = createSlice({
+export const phonesSlice = createSlice({
   name: 'phones',
   initialState,
   reducers: {},
+  selectors: {
+    selectDisplayedPhones: createSelector(
+      [
+        (state: InitialStatePhonesI) => state.phones,
+        (state: InitialStatePhonesI) => state.displayPhonesCount,
+      ],
+      (phones, displayedPhonesCount) => phones.slice(0, displayedPhonesCount),
+    ),
+  },
   extraReducers: (builder) => {
     builder.addCase(PhonesService.getPhones.pending, (state) => {
       state.isLoading = true;
@@ -46,7 +55,7 @@ const phonesSlice = createSlice({
     });
     builder.addCase(PhonesService.getPhones.fulfilled, (state, action) => {
       state.isLoading = false;
-      state.phones = action.payload.phonesData;
+      state.phones = action.payload;
     });
     builder.addCase(PhonesService.getPhones.rejected, (state, action) => {
       state.isError = true;
@@ -55,19 +64,4 @@ const phonesSlice = createSlice({
   },
 });
 
-export const selectDisplayedPhones = createSelector(
-  (state: InitialStatePhonesI) => state.phones,
-  (phones) => phones,
-);
-
-export const selectdisplayedPhonesCount = createSelector(
-  (state: InitialStatePhonesI) => state.displayPhonesCount,
-  (displayedPhonesCount) => displayedPhonesCount,
-);
-
-export const selectTableRows = createSelector(
-  (state: InitialStatePhonesI) => state.tableRows,
-  (tableRows) => tableRows,
-);
-
-export default phonesSlice.reducer;
+export const { selectDisplayedPhones } = phonesSlice.selectors;

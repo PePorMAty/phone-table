@@ -4,19 +4,12 @@ import { PhoneI } from 'store/models/phone/phone';
 
 import { baseUrl } from '../api';
 
-interface GetPhonesDataResponse {
-  phonesData: PhoneI[];
-}
-
 export const PhonesService = {
   getPhones: createAsyncThunk(
     'phonesSlice/phones',
-    async (): Promise<GetPhonesDataResponse> => {
+    async (): Promise<PhoneI[]> => {
       const response = await fetch(`${baseUrl}/data.json`);
-      const phonesData: PhoneI[] = await response.json();
-      return { phonesData };
+      return response.json();
     },
   ),
 };
-
-export default PhonesService;
