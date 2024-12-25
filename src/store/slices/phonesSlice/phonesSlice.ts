@@ -1,7 +1,6 @@
 import { createSelector, createSlice } from '@reduxjs/toolkit';
 
 import { PhonesService } from '../../../api/services/PhonesService';
-
 import { PhoneType, TableRowsType } from '../../models/phone/phone';
 
 export interface InitialStatePhonesType {

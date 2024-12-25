@@ -2,7 +2,6 @@ import { useEffect } from 'react';
 
 import { useAppDispatch, useAppSelector } from 'store';
 import { PhonesService } from 'api/services/PhonesService';
-
 import { selectDisplayedPhones } from 'store/slices/phonesSlice/phonesSlice';
 
 import { PageContainer } from '../../components/PageContainer';
