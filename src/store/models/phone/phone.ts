@@ -1,15 +1,17 @@
-export interface InitialStatePhonesI {
-  phones: PhoneI[];
-}
-
-export interface PhoneI {
+export interface PhoneType {
   id: number;
   name: string;
   image: string;
-  chars: CharsI;
+  chars: CharsType;
 }
 
-interface CharsI {
+export interface TableRowsType {
+  rowName: TableRowNameType;
+  rowTitle: string;
+  rowChars: (string | boolean)[];
+}
+
+interface CharsType {
   model: string;
   releaseDate: number;
   screenDiagonal: number;
@@ -21,3 +23,15 @@ interface CharsI {
   wirelessСharging: boolean;
   price: number;
 }
+
+type TableRowNameType =
+  | 'manufacturer'
+  | 'releaseYear'
+  | 'screenSize'
+  | 'country'
+  | 'memory'
+  | 'refreshRate'
+  | 'nfc'
+  | 'esim'
+  | 'inductive'
+  | 'price';
