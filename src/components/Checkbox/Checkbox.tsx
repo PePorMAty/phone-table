@@ -1,9 +1,10 @@
-import { HTMLAttributes } from 'react';
+import { HTMLAttributes, ReactNode } from 'react';
+
 import styles from './Checkbox.module.scss';
 
 interface CheckboxProps extends HTMLAttributes<HTMLInputElement> {
   id?: string;
-  children: React.ReactNode;
+  children: ReactNode;
   additionalClassName?: string;
   isChecked?: boolean;
 }
@@ -15,15 +16,24 @@ export const Checkbox = ({
   isChecked,
   ...rest
 }: CheckboxProps) => {
-  const createClassName = () => {
-    const className = `${styles.checkbox} ${additionalClassName ?? ''} ${isChecked ? styles.active : ''}`;
-    return className.trim() || undefined;
+  const createCheckboxVariant = () => {
+    return `${styles.checkbox} ${isChecked ? styles.active : ''}`;
+  };
+
+  const createCheckboxClassName = () => {
+    const baseClassName = `${createCheckboxVariant()}`;
+
+    if (additionalClassName) {
+      return `${baseClassName} ${additionalClassName}`;
+    }
+
+    return baseClassName;
   };
 
   return (
     <>
       <input
-        className={createClassName()}
+        className={createCheckboxClassName()}
         type="checkbox"
         id={id}
         {...rest}

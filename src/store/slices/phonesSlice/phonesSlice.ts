@@ -1,3 +1,4 @@
+
 import { createSelector, createSlice } from '@reduxjs/toolkit';
 
 import { PhonesService } from '../../../api/services/PhonesService';
@@ -73,3 +74,4 @@ export const phonesSlice = createSlice({
 });
 
 export const { selectDisplayedPhones } = phonesSlice.selectors;
+
