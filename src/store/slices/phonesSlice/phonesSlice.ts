@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import { createSelector, createSlice } from '@reduxjs/toolkit';
 
 import { PhonesService } from '../../../api/services/PhonesService';
@@ -74,34 +73,3 @@ export const phonesSlice = createSlice({
 });
 
 export const { selectDisplayedPhones } = phonesSlice.selectors;
-=======
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-
-import getPhones from '../../../api/services/getPhones';
-import { InitialStatePhonesI } from '../../models/phone/phone';
-
-export const getPhonesData = createAsyncThunk(
-  'phonesSlice/phones',
-  async () => {
-    const response = await getPhones();
-    return response;
-  },
-);
-
-const initialState: InitialStatePhonesI = {
-  phones: [],
-};
-
-const phonesSlice = createSlice({
-  name: 'phones',
-  initialState,
-  reducers: {},
-  extraReducers: (builder) => {
-    builder.addCase(getPhonesData.fulfilled, (state, action) => {
-      state.phones = action.payload;
-    });
-  },
-});
-
-export default phonesSlice.reducer;
->>>>>>> c1d4a06ee2153b7d93cb64373d67a9f6d3d9873f
