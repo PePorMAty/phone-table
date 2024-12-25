@@ -1,8 +1,6 @@
 import { useEffect } from 'react';
 
-import { useAppDispatch } from 'store/useAppDispatch/useAppDispatch';
-import { useAppSelector } from 'store/useAppSelector/useAppSelector';
-
+import { useAppDispatch, useAppSelector } from 'store';
 import { PhonesService } from 'api/services/PhonesService';
 
 import { selectDisplayedPhones } from 'store/slices/phonesSlice/phonesSlice';

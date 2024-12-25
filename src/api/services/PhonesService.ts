@@ -8,7 +8,7 @@ export const PhonesService = {
   getPhones: createAsyncThunk(
     'phonesSlice/phones',
     async (): Promise<PhoneType[]> => {
-      const response = await fetch(`${baseUrl}/data.json`);
+      const response = await fetch(`${baseUrl}/phones.json`);
       return response.json();
     },
   ),

@@ -6,9 +6,9 @@ export interface PhoneType {
 }
 
 export interface TableRowsType {
-  rowName: string;
+  rowName: TableRowNameType;
   rowTitle: string;
-  rowChars: CharsType[];
+  rowChars: (string | boolean)[];
 }
 
 interface CharsType {
@@ -23,3 +23,15 @@ interface CharsType {
   wirelessСharging: boolean;
   price: number;
 }
+
+type TableRowNameType =
+  | 'manufacturer'
+  | 'releaseYear'
+  | 'screenSize'
+  | 'country'
+  | 'memory'
+  | 'refreshRate'
+  | 'nfc'
+  | 'esim'
+  | 'inductive'
+  | 'price';
