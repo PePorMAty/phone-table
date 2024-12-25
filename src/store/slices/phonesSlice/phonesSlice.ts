@@ -2,12 +2,21 @@ import { createSelector, createSlice } from '@reduxjs/toolkit';
 
 import { PhonesService } from '../../../api/services/PhonesService';
 
-import { InitialStatePhonesI } from '../../models/phone/phone';
+import { PhoneType, TableRowsType } from '../../models/phone/phone';
 
-const initialState: InitialStatePhonesI = {
+export interface InitialStatePhonesType {
+  phones: PhoneType[];
+  isError: boolean;
+  isLoading: boolean;
+  displayPhonesCount: number;
+  tableRows: TableRowsType[];
+}
+
+const initialState: InitialStatePhonesType = {
   phones: [],
   isError: false,
   isLoading: false,
+  displayPhonesCount: 3,
   tableRows: [
     { rowName: 'manufacturer', rowTitle: 'Производитель', rowChars: [] },
     { rowName: 'releaseYear', rowTitle: 'Год релиза', rowChars: [] },
@@ -32,7 +41,6 @@ const initialState: InitialStatePhonesI = {
     },
     { rowName: 'price', rowTitle: 'Стоимость', rowChars: [] },
   ],
-  displayPhonesCount: 3,
 };
 
 export const phonesSlice = createSlice({
@@ -42,8 +50,8 @@ export const phonesSlice = createSlice({
   selectors: {
     selectDisplayedPhones: createSelector(
       [
-        (state: InitialStatePhonesI) => state.phones,
-        (state: InitialStatePhonesI) => state.displayPhonesCount,
+        (state: InitialStatePhonesType) => state.phones,
+        (state: InitialStatePhonesType) => state.displayPhonesCount,
       ],
       (phones, displayedPhonesCount) => phones.slice(0, displayedPhonesCount),
     ),
@@ -57,7 +65,7 @@ export const phonesSlice = createSlice({
       state.isLoading = false;
       state.phones = action.payload;
     });
-    builder.addCase(PhonesService.getPhones.rejected, (state, action) => {
+    builder.addCase(PhonesService.getPhones.rejected, (state) => {
       state.isError = true;
       state.isLoading = false;
     });

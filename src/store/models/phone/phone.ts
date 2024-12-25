@@ -1,19 +1,17 @@
-export interface InitialStatePhonesI {
-  phones: PhoneI[];
-  isError: boolean;
-  isLoading: boolean;
-  displayPhonesCount: number;
-  tableRows: TableRowsI[];
-}
-
-export interface PhoneI {
+export interface PhoneType {
   id: number;
   name: string;
   image: string;
-  chars: CharsI;
+  chars: CharsType;
 }
 
-interface CharsI {
+export interface TableRowsType {
+  rowName: string;
+  rowTitle: string;
+  rowChars: CharsType[];
+}
+
+interface CharsType {
   model: string;
   releaseDate: number;
   screenDiagonal: number;
@@ -24,10 +22,4 @@ interface CharsI {
   esim: boolean;
   wirelessСharging: boolean;
   price: number;
-}
-
-interface TableRowsI {
-  rowName: string;
-  rowTitle: string;
-  rowChars: CharsI[];
 }
