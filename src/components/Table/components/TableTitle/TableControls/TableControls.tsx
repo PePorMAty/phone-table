@@ -1,4 +1,5 @@
 import { Button } from 'components/Button';
+
 import styles from './TableControls.module.scss';
 
 const possibleItemsCount = [2, 3, 4, 5, 6];

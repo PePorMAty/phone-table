@@ -1,4 +1,5 @@
 import { useState } from 'react';
+
 import { TableControls } from './TableControls';
 
 import styles from './TableTitle.module.scss';
