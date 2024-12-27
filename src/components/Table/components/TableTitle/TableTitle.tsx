@@ -1,7 +1,7 @@
 import { useAppDispatch, useAppSelector } from 'store';
 import {
   changeDisplayPhonesCount,
-  getDisplayedphonesCount,
+  selectDisplayedphonesCount,
 } from 'store/slices/phonesSlice/phonesSlice';
 
 import { TableControls } from './TableControls';
@@ -9,7 +9,7 @@ import { TableControls } from './TableControls';
 import styles from './TableTitle.module.scss';
 
 export const TableTitle = () => {
-  const displayCount = useAppSelector(getDisplayedphonesCount);
+  const displayCount = useAppSelector(selectDisplayedphonesCount);
   const dispatch = useAppDispatch();
 
   const handleOnChangeCount = (count: number) => {
