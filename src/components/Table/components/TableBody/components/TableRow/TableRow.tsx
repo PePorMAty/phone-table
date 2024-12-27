@@ -5,17 +5,18 @@ import commonStyles from '../../../../TableCommonStyles.module.scss';
 
 interface TableRowProps {
   title?: string;
+  chars?: (string | number | boolean)[];
 }
 
-export const TableRow = ({ title }: TableRowProps) => {
+export const TableRow = ({ title, chars }: TableRowProps) => {
+  console.log(chars);
+
   return (
     <div className={`${styles.cellWrapper} ${commonStyles.tableItems}`}>
       <p className={`${styles.cellTitle} ${commonStyles.tableFirstColumn}`}>
         {title}
       </p>
-      <TableRowItem name="Apple" />
-      <TableRowItem name="Apple" />
-      <TableRowItem name="Apple" />
+      {chars?.map((char, index) => <TableRowItem key={index} name={char} />)}
     </div>
   );
 };
