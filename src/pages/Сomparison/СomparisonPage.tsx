@@ -21,7 +21,7 @@ export const ComparisonPage = () => {
   return (
     <div className={styles.content}>
       <PageContainer>
-        <Table />
+        <Table data={displayedPhones} />
       </PageContainer>
     </div>
   );

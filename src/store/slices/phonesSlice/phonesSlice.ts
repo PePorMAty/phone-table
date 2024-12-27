@@ -45,7 +45,11 @@ const initialState: InitialStatePhonesType = {
 export const phonesSlice = createSlice({
   name: 'phones',
   initialState,
-  reducers: {},
+  reducers: {
+    changeDisplayPhonesCount: (state, action) => {
+      state.displayPhonesCount = action.payload;
+    },
+  },
   selectors: {
     selectDisplayedPhones: createSelector(
       [
@@ -53,6 +57,10 @@ export const phonesSlice = createSlice({
         (state: InitialStatePhonesType) => state.displayPhonesCount,
       ],
       (phones, displayedPhonesCount) => phones.slice(0, displayedPhonesCount),
+    ),
+    selectDisplayPhonesCount: createSelector(
+      (state: InitialStatePhonesType) => state.displayPhonesCount,
+      (displayedPhonesCount) => displayedPhonesCount,
     ),
   },
   extraReducers: (builder) => {
@@ -71,4 +79,7 @@ export const phonesSlice = createSlice({
   },
 });
 
-export const { selectDisplayedPhones } = phonesSlice.selectors;
+export const { changeDisplayPhonesCount } = phonesSlice.actions;
+
+export const { selectDisplayedPhones, selectDisplayPhonesCount } =
+  phonesSlice.selectors;

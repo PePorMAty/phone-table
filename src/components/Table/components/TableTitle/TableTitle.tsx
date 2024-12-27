@@ -1,14 +1,19 @@
-import { useState } from 'react';
+import { useAppDispatch, useAppSelector } from 'store';
+import {
+  changeDisplayPhonesCount,
+  selectDisplayPhonesCount,
+} from 'store/slices/phonesSlice/phonesSlice';
 
 import { TableControls } from './TableControls';
 
 import styles from './TableTitle.module.scss';
 
 export const TableTitle = () => {
-  const [displayCount, setDisplayCount] = useState(2);
+  const displayCount = useAppSelector(selectDisplayPhonesCount);
+  const dispatch = useAppDispatch();
 
-  const onChangeCount = (count: number) => {
-    setDisplayCount(count);
+  const handleOnChangeCount = (count: number) => {
+    dispatch(changeDisplayPhonesCount(count));
   };
 
   return (
@@ -16,7 +21,7 @@ export const TableTitle = () => {
       <h2 className={styles.title}>Смартфоны</h2>
       <TableControls
         displayCount={displayCount}
-        onChangeCount={onChangeCount}
+        onChangeCount={handleOnChangeCount}
       />
     </div>
   );
