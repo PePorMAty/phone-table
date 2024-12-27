@@ -58,7 +58,7 @@ export const phonesSlice = createSlice({
       ],
       (phones, displayedPhonesCount) => phones.slice(0, displayedPhonesCount),
     ),
-    selectDisplayedphonesCount: createSelector(
+    selectDisplayPhonesCount: createSelector(
       (state: InitialStatePhonesType) => state.displayPhonesCount,
       (displayedPhonesCount) => displayedPhonesCount,
     ),
@@ -81,5 +81,5 @@ export const phonesSlice = createSlice({
 
 export const { changeDisplayPhonesCount } = phonesSlice.actions;
 
-export const { selectDisplayedPhones, selectDisplayedphonesCount } =
+export const { selectDisplayedPhones, selectDisplayPhonesCount } =
   phonesSlice.selectors;
