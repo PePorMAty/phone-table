@@ -58,6 +58,10 @@ export const phonesSlice = createSlice({
       ],
       (phones, displayedPhonesCount) => phones.slice(0, displayedPhonesCount),
     ),
+    getDisplayedphonesCount: createSelector(
+      (state: InitialStatePhonesType) => state.displayPhonesCount,
+      (displayedPhonesCount) => displayedPhonesCount,
+    ),
   },
   extraReducers: (builder) => {
     builder.addCase(PhonesService.getPhones.pending, (state) => {
@@ -77,4 +81,5 @@ export const phonesSlice = createSlice({
 
 export const { changeDisplayPhonesCount } = phonesSlice.actions;
 
-export const { selectDisplayedPhones } = phonesSlice.selectors;
+export const { selectDisplayedPhones, getDisplayedphonesCount } =
+  phonesSlice.selectors;

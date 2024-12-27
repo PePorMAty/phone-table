@@ -1,5 +1,3 @@
-import { useState } from 'react';
-
 import { PhoneType } from 'store/models/phone/phone';
 import { Checkbox } from 'components/Checkbox';
 
@@ -8,13 +6,17 @@ import { TableHeadItem } from './components/TableHeadItem';
 import commonStyles from '../../TableCommonStyles.module.scss';
 import styles from './TableHead.module.scss';
 
-interface TableHeadPropsType {
-  tableData: PhoneType[];
+interface TableHeadProps {
+  data: PhoneType[];
+  isShowDifferences: boolean;
+  setIsShowDifferences: (value: boolean) => void;
 }
 
-export const TableHead = ({ tableData }: TableHeadPropsType) => {
-  const [isShowDifferences, setIsShowDifferences] = useState<boolean>(false);
-
+export const TableHead = ({
+  data,
+  isShowDifferences,
+  setIsShowDifferences,
+}: TableHeadProps) => {
   const handleShowDifferencesClick = () => {
     setIsShowDifferences(!isShowDifferences);
   };
@@ -33,7 +35,7 @@ export const TableHead = ({ tableData }: TableHeadPropsType) => {
         </Checkbox>
       </div>
       <ul className={commonStyles.tableItems}>
-        {tableData?.map((phone) => (
+        {data?.map((phone) => (
           <TableHeadItem
             key={phone.id}
             img={phone.image}

@@ -1,24 +1,20 @@
-import { useEffect, useState } from 'react';
-
-import { useAppDispatch } from 'store';
-import { changeDisplayPhonesCount } from 'store/slices/phonesSlice/phonesSlice';
+import { useAppDispatch, useAppSelector } from 'store';
+import {
+  changeDisplayPhonesCount,
+  getDisplayedphonesCount,
+} from 'store/slices/phonesSlice/phonesSlice';
 
 import { TableControls } from './TableControls';
 
 import styles from './TableTitle.module.scss';
 
 export const TableTitle = () => {
-  const [displayCount, setDisplayCount] = useState(3);
-
+  const displayCount = useAppSelector(getDisplayedphonesCount);
   const dispatch = useAppDispatch();
 
   const handleOnChangeCount = (count: number) => {
-    setDisplayCount(count);
+    dispatch(changeDisplayPhonesCount(count));
   };
-
-  useEffect(() => {
-    dispatch(changeDisplayPhonesCount(displayCount));
-  }, [displayCount]);
 
   return (
     <div className={styles.titleWrapper}>
