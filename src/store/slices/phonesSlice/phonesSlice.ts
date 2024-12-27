@@ -45,7 +45,11 @@ const initialState: InitialStatePhonesType = {
 export const phonesSlice = createSlice({
   name: 'phones',
   initialState,
-  reducers: {},
+  reducers: {
+    changeDisplayPhonesCount: (state, action) => {
+      state.displayPhonesCount = action.payload;
+    },
+  },
   selectors: {
     selectDisplayedPhones: createSelector(
       [
@@ -70,5 +74,7 @@ export const phonesSlice = createSlice({
     });
   },
 });
+
+export const { changeDisplayPhonesCount } = phonesSlice.actions;
 
 export const { selectDisplayedPhones } = phonesSlice.selectors;

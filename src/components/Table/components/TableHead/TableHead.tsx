@@ -1,14 +1,18 @@
 import { useState } from 'react';
 
-import { TableHeadItem } from './components/TableHeadItem';
+import { PhoneType } from 'store/models/phone/phone';
 import { Checkbox } from 'components/Checkbox';
 
-import styles from './TableHead.module.scss';
+import { TableHeadItem } from './components/TableHeadItem';
+
 import commonStyles from '../../TableCommonStyles.module.scss';
+import styles from './TableHead.module.scss';
 
-import phone from '../../../../assets/iphone12.png';
+interface TableHeadPropsType {
+  tableData: PhoneType[];
+}
 
-export const TableHead = () => {
+export const TableHead = ({ tableData }: TableHeadPropsType) => {
   const [isShowDifferences, setIsShowDifferences] = useState<boolean>(false);
 
   const handleShowDifferencesClick = () => {
@@ -29,9 +33,14 @@ export const TableHead = () => {
         </Checkbox>
       </div>
       <ul className={commonStyles.tableItems}>
-        <TableHeadItem img={phone} name={'Apple Iphone 12'} altImg={'phone'} />
-        <TableHeadItem img={phone} name={'Apple Iphone 12'} altImg={'phone'} />
-        <TableHeadItem img={phone} name={'Apple Iphone 12'} altImg={'phone'} />
+        {tableData?.map((phone) => (
+          <TableHeadItem
+            key={phone.id}
+            img={phone.image}
+            name={phone.name}
+            altImg={phone.name}
+          />
+        ))}
       </ul>
     </div>
   );
