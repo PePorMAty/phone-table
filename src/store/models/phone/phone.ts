@@ -8,7 +8,7 @@ export interface PhoneType {
 export interface TableRowsType {
   rowName: TableRowNameType;
   rowTitle: string;
-  rowChars: (string | boolean)[];
+  rowChars: (string | number | boolean)[];
 }
 
 interface CharsType {

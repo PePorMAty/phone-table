@@ -8,16 +8,13 @@ interface Props {
 }
 
 export const TableRowItem = ({ name }: Props) => {
-  const isBooleanNameValid = (name: string | number | boolean) => {
+  const outputNameData = (name: string | number | boolean) => {
     if (typeof name === 'boolean') {
       return !name ? <ErrorIcon /> : <SuccessIcon />;
+    } else {
+      return name;
     }
   };
 
-  return (
-    <p className={`${commonStyles.item}`}>
-      {name}
-      {isBooleanNameValid(name)}
-    </p>
-  );
+  return <p className={`${commonStyles.item}`}>{outputNameData(name)}</p>;
 };

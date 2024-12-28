@@ -1,13 +1,14 @@
-import { useAppSelector } from 'store';
-import { selectTableRows } from 'store/slices/phonesSlice/phonesSlice';
+import { TableRowsType } from 'store/models/phone/phone';
 
 import { TableRow } from './components/TableRow';
 
 import styles from './TableBody.module.scss';
 
-export const TableBody = () => {
-  const tableRows = useAppSelector(selectTableRows);
+interface TableBodyProps {
+  tableRows: TableRowsType[];
+}
 
+export const TableBody = ({ tableRows }: TableBodyProps) => {
   return (
     <div className={styles.tableBody}>
       {tableRows.map(({ rowName, rowTitle, rowChars }) => (
