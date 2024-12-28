@@ -8,8 +8,6 @@ import styles from './TableBody.module.scss';
 export const TableBody = () => {
   const tableRows = useAppSelector(selectTableRows);
 
-  console.log(tableRows);
-
   return (
     <div className={styles.tableBody}>
       {tableRows.map(({ rowName, rowTitle, rowChars }) => (

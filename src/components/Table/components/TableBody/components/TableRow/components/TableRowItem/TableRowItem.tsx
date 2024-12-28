@@ -1,22 +1,23 @@
-import falseIcon from '../../../../../../../../assets/icons/no.svg';
-import trueIcon from '../../../../../../../../assets/icons/yes.svg';
+import { SuccessIcon } from 'assets/icons/SuccessIcon';
+import { ErrorIcon } from 'assets/icons/ErrorIcon';
 
 import commonStyles from '../../../../../../TableCommonStyles.module.scss';
 
 interface Props {
-  name?: string | number | boolean;
+  name: string | number | boolean;
 }
 
 export const TableRowItem = ({ name }: Props) => {
+  const isBooleanNameValid = (name: string | number | boolean) => {
+    if (typeof name === 'boolean') {
+      return !name ? <ErrorIcon /> : <SuccessIcon />;
+    }
+  };
+
   return (
     <p className={`${commonStyles.item}`}>
-      {name === true ? (
-        <img src={trueIcon} />
-      ) : name === false ? (
-        <img src={falseIcon} />
-      ) : (
-        name
-      )}
+      {name}
+      {isBooleanNameValid(name)}
     </p>
   );
 };

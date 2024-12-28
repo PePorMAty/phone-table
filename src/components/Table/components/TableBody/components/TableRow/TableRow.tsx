@@ -4,13 +4,11 @@ import styles from './TableRow.module.scss';
 import commonStyles from '../../../../TableCommonStyles.module.scss';
 
 interface TableRowProps {
-  title?: string;
-  chars?: (string | number | boolean)[];
+  title: string;
+  chars: (string | number | boolean)[];
 }
 
 export const TableRow = ({ title, chars }: TableRowProps) => {
-  console.log(chars);
-
   return (
     <div className={`${styles.cellWrapper} ${commonStyles.tableItems}`}>
       <p className={`${styles.cellTitle} ${commonStyles.tableFirstColumn}`}>
