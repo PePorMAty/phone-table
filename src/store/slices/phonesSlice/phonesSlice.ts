@@ -81,6 +81,32 @@ export const phonesSlice = createSlice({
           rowTitle: row.rowTitle,
         })),
     ),
+    selectDifferentTableRows: createSelector(
+      [
+        (state: InitialStatePhonesType) => state.tableRows,
+        (state: InitialStatePhonesType) => state.phones,
+        (state: InitialStatePhonesType) => state.displayPhonesCount,
+      ],
+      (tableRows, phones, displayPhonesCount) =>
+        tableRows.map((row) => {
+          const uniqueRows = phones
+            .map((phone) => phone.chars[row.rowName])
+            .slice(0, displayPhonesCount)
+            .filter((value, index, self) => self.indexOf(value) === index);
+
+          if (uniqueRows.length === 1) {
+            return null;
+          }
+
+          return {
+            rowChars: phones
+              .map((phone) => phone.chars[row.rowName])
+              .slice(0, displayPhonesCount),
+            rowName: row.rowName,
+            rowTitle: row.rowTitle,
+          };
+        }),
+    ),
   },
   extraReducers: (builder) => {
     builder.addCase(PhonesService.getPhones.pending, (state) => {
@@ -104,4 +130,5 @@ export const {
   selectDisplayedPhones,
   selectDisplayPhonesCount,
   selectTableRows,
+  selectDifferentTableRows,
 } = phonesSlice.selectors;

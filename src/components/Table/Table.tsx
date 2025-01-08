@@ -22,7 +22,7 @@ export const Table = ({ data, tableRows }: TableProps) => {
         isShowDifferences={isShowDifferences}
         setIsShowDifferences={setIsShowDifferences}
       />
-      <TableBody tableRows={tableRows} />
+      <TableBody tableRows={tableRows} isShowDifferences={isShowDifferences} />
     </>
   );
 };
