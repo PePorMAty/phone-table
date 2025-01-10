@@ -9,9 +9,10 @@ import { TableTitle } from './components/TableTitle';
 interface TableProps {
   data: PhoneType[];
   tableRows: TableRowsType[];
+  differentTableRows: TableRowsType[];
 }
 
-export const Table = ({ data, tableRows }: TableProps) => {
+export const Table = ({ data, tableRows, differentTableRows }: TableProps) => {
   const [isShowDifferences, setIsShowDifferences] = useState<boolean>(false);
 
   return (
@@ -22,7 +23,11 @@ export const Table = ({ data, tableRows }: TableProps) => {
         isShowDifferences={isShowDifferences}
         setIsShowDifferences={setIsShowDifferences}
       />
-      <TableBody tableRows={tableRows} isShowDifferences={isShowDifferences} />
+      <TableBody
+        tableRows={tableRows}
+        isShowDifferences={isShowDifferences}
+        differentTableRows={differentTableRows}
+      />
     </>
   );
 };

@@ -10,10 +10,9 @@ interface Props {
 export const TableRowItem = ({ name }: Props) => {
   const outputNameData = (name: string | number | boolean) => {
     if (typeof name === 'boolean') {
-      return !name ? <ErrorIcon /> : <SuccessIcon />;
-    } else {
-      return name;
+      return name ? <SuccessIcon /> : <ErrorIcon />;
     }
+    return name;
   };
 
   return <p className={`${commonStyles.item}`}>{outputNameData(name)}</p>;
