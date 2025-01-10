@@ -3,11 +3,11 @@ import { useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from 'store';
 import { PhonesService } from 'api/services/PhonesService';
 import {
-  selectDifferentTableRows,
+  changeDisplayPhonesCount,
   selectDisplayedPhones,
+  selectDisplayPhonesCount,
   selectTableRows,
 } from 'store/slices/phonesSlice/phonesSlice';
-import { TableRowsType } from 'store/models/phone/phone';
 
 import { PageContainer } from '../../components/PageContainer';
 import { Table } from '../../components/Table';
@@ -17,13 +17,13 @@ import styles from './ComparisonPage.module.scss';
 export const ComparisonPage = () => {
   const displayedPhones = useAppSelector(selectDisplayedPhones);
   const tableRows = useAppSelector(selectTableRows);
-  const differentTableRows = useAppSelector(selectDifferentTableRows);
+  const displayCount = useAppSelector(selectDisplayPhonesCount);
 
   const dispatch = useAppDispatch();
 
-  const filteredDifferentTableRows = differentTableRows.filter(
-    Boolean,
-  ) as TableRowsType[];
+  const handleOnChangeCount = (count: number) => {
+    dispatch(changeDisplayPhonesCount(count));
+  };
 
   useEffect(() => {
     dispatch(PhonesService.getPhones());
@@ -35,7 +35,8 @@ export const ComparisonPage = () => {
         <Table
           data={displayedPhones}
           tableRows={tableRows}
-          differentTableRows={filteredDifferentTableRows}
+          displayCount={displayCount}
+          handleOnChangeCount={handleOnChangeCount}
         />
       </PageContainer>
     </div>

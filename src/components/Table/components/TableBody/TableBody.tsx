@@ -6,24 +6,14 @@ import styles from './TableBody.module.scss';
 
 interface TableBodyProps {
   tableRows: TableRowsType[];
-  isShowDifferences: boolean;
-  differentTableRows: TableRowsType[];
 }
 
-export const TableBody = ({
-  tableRows,
-  isShowDifferences,
-  differentTableRows,
-}: TableBodyProps) => {
+export const TableBody = ({ tableRows }: TableBodyProps) => {
   return (
     <div className={styles.tableBody}>
-      {isShowDifferences
-        ? differentTableRows.map(({ rowName, rowTitle, rowChars }) => (
-            <TableRow key={rowName} title={rowTitle} chars={rowChars} />
-          ))
-        : tableRows.map(({ rowName, rowTitle, rowChars }) => (
-            <TableRow key={rowName} title={rowTitle} chars={rowChars} />
-          ))}
+      {tableRows.map(({ rowName, rowTitle, rowChars }) => (
+        <TableRow key={rowName} title={rowTitle} chars={rowChars} />
+      ))}
     </div>
   );
 };
