@@ -74,9 +74,10 @@ export const phonesSlice = createSlice({
       ],
       (tableRows, phones, displayPhonesCount) =>
         tableRows.map((row) => ({
+          ...row,
           rowChars: phones
-            .map((phone) => phone.chars[row.rowName])
-            .slice(0, displayPhonesCount),
+            .slice(0, displayPhonesCount)
+            .map((phone) => phone.chars[row.rowName]),
           rowName: row.rowName,
           rowTitle: row.rowTitle,
         })),
