@@ -1,12 +1,19 @@
+import { TableRowsType } from 'store/models/phone/phone';
+
 import { TableRow } from './components/TableRow';
 
 import styles from './TableBody.module.scss';
 
-export const TableBody = () => {
+interface TableBodyProps {
+  tableRows: TableRowsType[];
+}
+
+export const TableBody = ({ tableRows }: TableBodyProps) => {
   return (
     <div className={styles.tableBody}>
-      <TableRow title={'Производитель'} />
-      <TableRow title={'Год релиза'} />
+      {tableRows.map(({ rowName, rowTitle, rowChars }) => (
+        <TableRow key={rowName} title={rowTitle} chars={rowChars} />
+      ))}
     </div>
   );
 };

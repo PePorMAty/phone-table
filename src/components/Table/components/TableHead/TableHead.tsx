@@ -35,13 +35,8 @@ export const TableHead = ({
         </Checkbox>
       </div>
       <ul className={commonStyles.tableItems}>
-        {data?.map((phone) => (
-          <TableHeadItem
-            key={phone.id}
-            img={phone.image}
-            name={phone.name}
-            altImg={phone.name}
-          />
+        {data?.map(({ id, image, name }) => (
+          <TableHeadItem key={id} img={image} name={name} altImg={name} />
         ))}
       </ul>
     </div>

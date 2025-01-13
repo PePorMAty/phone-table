@@ -17,24 +17,28 @@ const initialState: InitialStatePhonesType = {
   isLoading: false,
   displayPhonesCount: 3,
   tableRows: [
-    { rowName: 'manufacturer', rowTitle: 'Производитель', rowChars: [] },
-    { rowName: 'releaseYear', rowTitle: 'Год релиза', rowChars: [] },
+    { rowName: 'model', rowTitle: 'Производитель', rowChars: [] },
+    { rowName: 'releaseDate', rowTitle: 'Год релиза', rowChars: [] },
     {
-      rowName: 'screenSize',
+      rowName: 'screenDiagonal',
       rowTitle: 'Диагональ экрана (дюйм)',
       rowChars: [],
     },
-    { rowName: 'country', rowTitle: 'Страна произоводитель', rowChars: [] },
+    {
+      rowName: 'countryOfOrigin',
+      rowTitle: 'Страна произоводитель',
+      rowChars: [],
+    },
     { rowName: 'memory', rowTitle: 'Объем памяти', rowChars: [] },
     {
-      rowName: 'refreshRate',
+      rowName: 'screenRefreshRate',
       rowTitle: 'Частота обновления экрана',
       rowChars: [],
     },
     { rowName: 'nfc', rowTitle: 'NFC', rowChars: [] },
     { rowName: 'esim', rowTitle: 'Поддержка eSIM', rowChars: [] },
     {
-      rowName: 'inductive',
+      rowName: 'wirelessСharging',
       rowTitle: 'Поддержка беспроводной зарядки',
       rowChars: [],
     },
@@ -62,6 +66,22 @@ export const phonesSlice = createSlice({
       (state: InitialStatePhonesType) => state.displayPhonesCount,
       (displayedPhonesCount) => displayedPhonesCount,
     ),
+    selectTableRows: createSelector(
+      [
+        (state: InitialStatePhonesType) => state.tableRows,
+        (state: InitialStatePhonesType) => state.phones,
+        (state: InitialStatePhonesType) => state.displayPhonesCount,
+      ],
+      (tableRows, phones, displayPhonesCount) =>
+        tableRows.map((row) => ({
+          ...row,
+          rowChars: phones
+            .slice(0, displayPhonesCount)
+            .map((phone) => phone.chars[row.rowName]),
+          rowName: row.rowName,
+          rowTitle: row.rowTitle,
+        })),
+    ),
   },
   extraReducers: (builder) => {
     builder.addCase(PhonesService.getPhones.pending, (state) => {
@@ -81,5 +101,8 @@ export const phonesSlice = createSlice({
 
 export const { changeDisplayPhonesCount } = phonesSlice.actions;
 
-export const { selectDisplayedPhones, selectDisplayPhonesCount } =
-  phonesSlice.selectors;
+export const {
+  selectDisplayedPhones,
+  selectDisplayPhonesCount,
+  selectTableRows,
+} = phonesSlice.selectors;

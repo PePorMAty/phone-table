@@ -8,7 +8,7 @@ export interface PhoneType {
 export interface TableRowsType {
   rowName: TableRowNameType;
   rowTitle: string;
-  rowChars: (string | boolean)[];
+  rowChars: (string | number | boolean)[];
 }
 
 interface CharsType {
@@ -16,22 +16,22 @@ interface CharsType {
   releaseDate: number;
   screenDiagonal: number;
   countryOfOrigin: string;
-  memory: number;
-  screenRefreshRate: number;
+  memory: string;
+  screenRefreshRate: string;
   nfc: boolean;
   esim: boolean;
   wirelessСharging: boolean;
-  price: number;
+  price: string;
 }
 
-type TableRowNameType =
-  | 'manufacturer'
-  | 'releaseYear'
-  | 'screenSize'
-  | 'country'
+export type TableRowNameType =
+  | 'model'
+  | 'releaseDate'
+  | 'screenDiagonal'
+  | 'countryOfOrigin'
   | 'memory'
-  | 'refreshRate'
+  | 'screenRefreshRate'
   | 'nfc'
   | 'esim'
-  | 'inductive'
+  | 'wirelessСharging'
   | 'price';

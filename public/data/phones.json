@@ -1,138 +1,138 @@
 [
   {
     "id": 1,
-    "name": "Apple",
+    "name": "Apple Iphone 12",
     "image": "/phoneImages/iphone12.png",
     "chars": {
-      "model": "Apple Iphone 12",
+      "model": "Apple",
       "releaseDate": 2020,
       "screenDiagonal": 6.1,
       "countryOfOrigin": "Китай",
-      "memory": 128,
-      "screenRefreshRate": 60,
+      "memory": "128 Гб",
+      "screenRefreshRate": "60 Гц",
       "nfc": false,
       "esim": true,
       "wirelessСharging": true,
-      "price": 81990
+      "price": "81 990  ₽"
     }
   },
   {
     "id": 2,
-    "name": "Xiaomi",
+    "name": "Xiaomi Mi 11 Lite",
     "image": "/phoneImages/XiaomiMi11Lite1.png",
     "chars": {
-      "model": "Xiaomi Mi 11 Lite",
+      "model": "Xiaomi",
       "releaseDate": 2021,
       "screenDiagonal": 6.55,
       "countryOfOrigin": "Китай",
-      "memory": 128,
-      "screenRefreshRate": 90,
+      "memory": "128 Гб",
+      "screenRefreshRate": "90 Гц",
       "nfc": true,
       "esim": true,
       "wirelessСharging": false,
-      "price": 27490
+      "price": "27 490 ₽"
     }
   },
   {
     "id": 3,
-    "name": "Samsung",
+    "name": "Samsung Galaxy A72",
     "image": "/phoneImages/A72_1.png",
     "chars": {
-      "model": "Samsung Galaxy A72",
+      "model": "Samsung",
       "releaseDate": 2021,
       "screenDiagonal": 6.7,
       "countryOfOrigin": "Вьетнам",
-      "memory": 128,
-      "screenRefreshRate": 90,
+      "memory": "128 Гб",
+      "screenRefreshRate": "90 Гц",
       "nfc": true,
       "esim": false,
       "wirelessСharging": true,
-      "price": 32890
+      "price": "32 890 ₽"
     }
   },
   {
     "id": 4,
-    "name": "Samsung",
+    "name": "Samsung Galaxy S21",
     "image": "/phoneImages/SamsungGalaxyS21.png",
     "chars": {
-      "model": "Samsung Galaxy S21",
+      "model": "Samsung",
       "releaseDate": 2021,
       "screenDiagonal": 6.2,
       "countryOfOrigin": "Вьетнам",
-      "memory": 256,
-      "screenRefreshRate": 120,
+      "memory": "256 Гб",
+      "screenRefreshRate": "120 Гц",
       "nfc": true,
       "esim": true,
       "wirelessСharging": true,
-      "price": 55299
+      "price": "55 299 ₽"
     }
   },
   {
     "id": 5,
-    "name": "Apple",
+    "name": "Apple iPhone Xr",
     "image": "/phoneImages/AppleiPhoneXr.png",
     "chars": {
-      "model": "Apple iPhone Xr",
+      "model": "Apple",
       "releaseDate": 2022,
       "screenDiagonal": 6.1,
       "countryOfOrigin": "Китай",
-      "memory": 256,
-      "screenRefreshRate": 90,
+      "memory": "256 Гб",
+      "screenRefreshRate": "90 Гц",
       "nfc": true,
       "esim": true,
       "wirelessСharging": true,
-      "price": 29299
+      "price": "29 299 ₽"
     }
   },
   {
     "id": 6,
-    "name": "Realme",
+    "name": "Realme 8 Pro",
     "image": "/phoneImages/Realme8Pro.png",
     "chars": {
-      "model": "Realme 8 Pro",
+      "model": "Realme",
       "releaseDate": 2021,
       "screenDiagonal": 6.4,
       "countryOfOrigin": "Китай",
-      "memory": 128,
-      "screenRefreshRate": 60,
+      "memory": "128 Гб",
+      "screenRefreshRate": "60 Гц",
       "nfc": true,
       "esim": true,
       "wirelessСharging": false,
-      "price": 9000
+      "price": "9 000 ₽"
     }
   },
   {
     "id": 7,
-    "name": "Samsung",
+    "name": "Samsung Galaxy Z Flip6",
     "image": "/phoneImages/sGalaxyZFlip6.png",
     "chars": {
-      "model": "Samsung Galaxy Z Flip6",
+      "model": "Samsung",
       "releaseDate": 2024,
       "screenDiagonal": 6.7,
       "countryOfOrigin": "Вьетнам",
-      "memory": 256,
-      "screenRefreshRate": 120,
+      "memory": "256 Гб",
+      "screenRefreshRate": "120 Гц",
       "nfc": true,
       "esim": true,
       "wirelessСharging": false,
-      "price": 199990
+      "price": "199 990 ₽"
     }
   },
   {
     "id": 8,
-    "name": "Apple",
+    "name": "Apple iPhone 11",
     "image": "/phoneImages/iphone11.png",
     "chars": {
-      "model": "Apple iPhone 11",
+      "model": "Apple",
       "releaseDate": 2019,
       "screenDiagonal": 6.1,
       "countryOfOrigin": "Индия",
-      "memory": 64,
-      "screenRefreshRate": 60,
+      "memory": "64 Гб",
+      "screenRefreshRate": "60 Гц",
       "nfc": false,
       "esim": true,
       "wirelessСharging": false,
-      "price": 37799
+      "price": "37 799 ₽"
     }
   }
 ]

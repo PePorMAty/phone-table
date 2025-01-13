@@ -1,21 +1,16 @@
-import { useAppDispatch, useAppSelector } from 'store';
-import {
-  changeDisplayPhonesCount,
-  selectDisplayPhonesCount,
-} from 'store/slices/phonesSlice/phonesSlice';
-
 import { TableControls } from './TableControls';
 
 import styles from './TableTitle.module.scss';
 
-export const TableTitle = () => {
-  const displayCount = useAppSelector(selectDisplayPhonesCount);
-  const dispatch = useAppDispatch();
+interface TableTitleProps {
+  displayCount: number;
+  handleOnChangeCount: (count: number) => void;
+}
 
-  const handleOnChangeCount = (count: number) => {
-    dispatch(changeDisplayPhonesCount(count));
-  };
-
+export const TableTitle = ({
+  displayCount,
+  handleOnChangeCount,
+}: TableTitleProps) => {
   return (
     <div className={styles.titleWrapper}>
       <h2 className={styles.title}>Смартфоны</h2>
