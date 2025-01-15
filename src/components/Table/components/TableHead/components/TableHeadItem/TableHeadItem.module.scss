@@ -1,3 +1,8 @@
+.wrapper {
+  display: flex;
+  position: relative;
+}
+
 .itemWrapper {
   display: flex;
   flex-direction: column;
@@ -8,9 +13,31 @@
   margin: 0 auto;
   height: 100px;
   width: auto;
+  margin-bottom: 8px;
+}
+
+.imgWrapper {
+  display: flex;
+  justify-content: flex-end;
 }
 
 .name {
   text-align: center;
   padding: 0 5px;
+}
+
+.openPopupBtn {
+  position: relative;
+  cursor: pointer;
+  align-self: center;
+  &::after {
+    position: absolute;
+    content: '';
+    width: 30px;
+    height: 27px;
+    background: url('../../../../../../assets/icons/openPopup.svg');
+    background-repeat: no-repeat;
+    right: 0;
+    top: 0;
+  }
 }
