@@ -2,10 +2,9 @@
   position: absolute;
   padding: 18px 25px;
   background-color: #fff;
-  width: 420px;
-  height: 336px;
-  z-index: 1;
+  max-height: 336px;
+  z-index: 100;
   top: 50px;
   left: 100px;
-  box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 2px #0002;
 }

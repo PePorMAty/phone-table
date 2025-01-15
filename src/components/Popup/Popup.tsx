@@ -1,12 +1,14 @@
-import { ReactNode } from 'react';
+import { ReactNode, useRef } from 'react';
+
+import { useOutsideClick } from 'hooks';
 
 import styles from './Popup.module.scss';
 
 type PopupProps = {
-  children?: ReactNode;
   isOpen: boolean;
   onClose: () => void;
   additionalClassName?: string;
+  children?: ReactNode;
 };
 
 export const Popup = ({
@@ -15,7 +17,13 @@ export const Popup = ({
   onClose,
   additionalClassName,
 }: PopupProps) => {
-  console.log(isOpen);
+  const popupRef = useRef<HTMLDivElement | null>(null);
+
+  const handleClosePopup = () => {
+    onClose();
+  };
+
+  useOutsideClick({ ref: popupRef, handler: handleClosePopup });
 
   if (!isOpen) {
     return null;
@@ -31,12 +39,8 @@ export const Popup = ({
     return baseClassName;
   };
 
-  const handleClosePopup = () => {
-    onClose();
-  };
-
   return (
-    <div className={createPopupClassName()} onClick={handleClosePopup}>
+    <div ref={popupRef} className={createPopupClassName()}>
       {children}
     </div>
   );

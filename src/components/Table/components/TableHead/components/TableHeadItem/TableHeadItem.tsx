@@ -4,6 +4,8 @@ import { Popup } from 'components/Popup';
 
 import styles from './TableHeadItem.module.scss';
 import commonStyles from '../../../../TableCommonStyles.module.scss';
+import { Button } from 'components/Button';
+import { OpenPopup } from 'assets/icons/OpenPopup';
 
 interface Props {
   img?: string;
@@ -14,7 +16,9 @@ interface Props {
 export const TableHeadItem = ({ img, name, altImg }: Props) => {
   const [isOpenPopup, setIsOpenPopup] = useState(false);
 
-  const onClosePopup = () => {};
+  const onClosePopup = () => {
+    setIsOpenPopup(false);
+  };
 
   const handleOpenPopup = () => {
     setIsOpenPopup(true);
@@ -31,7 +35,9 @@ export const TableHeadItem = ({ img, name, altImg }: Props) => {
           <p>{name}</p>
         </Popup>
       ) : (
-        <div className={styles.openPopupBtn} onClick={handleOpenPopup}></div>
+        <Button className={styles.openPopupBtn} onClick={handleOpenPopup}>
+          <OpenPopup />
+        </Button>
       )}
     </div>
   );
