@@ -30,7 +30,11 @@ export const TableHeadItem = ({ img, name, altImg, replacingItems }: Props) => {
         <p className={styles.name}>{name}</p>
       </li>
       {isOpenPopup && (
-        <Popup isOpen={isOpenPopup} onClose={handlePopupToggle}>
+        <Popup
+          isOpen={isOpenPopup}
+          onClose={handlePopupToggle}
+          additionalClassName={styles.replacingPopup}
+        >
           <ReplacingPopup replacingItems={replacingItems} />
         </Popup>
       )}
