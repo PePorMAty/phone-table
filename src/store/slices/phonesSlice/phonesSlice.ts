@@ -60,7 +60,7 @@ export const phonesSlice = createSlice({
         (state: InitialStatePhonesType) => state.phones,
         (state: InitialStatePhonesType) => state.displayPhonesCount,
       ],
-      (phones, displayedPhonesCount) => phones.slice(0, displayedPhonesCount),
+      (phones, displayPhonesCount) => phones.slice(0, displayPhonesCount),
     ),
     selectDisplayPhonesCount: createSelector(
       (state: InitialStatePhonesType) => state.displayPhonesCount,
@@ -81,6 +81,13 @@ export const phonesSlice = createSlice({
           rowName: row.rowName,
           rowTitle: row.rowTitle,
         })),
+    ),
+    selectReplacingPhones: createSelector(
+      [
+        (state: InitialStatePhonesType) => state.phones,
+        (state: InitialStatePhonesType) => state.displayPhonesCount,
+      ],
+      (phones, displayPhonesCount) => phones.slice(displayPhonesCount),
     ),
   },
   extraReducers: (builder) => {
@@ -105,4 +112,5 @@ export const {
   selectDisplayedPhones,
   selectDisplayPhonesCount,
   selectTableRows,
+  selectReplacingPhones,
 } = phonesSlice.selectors;

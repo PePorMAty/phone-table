@@ -8,7 +8,7 @@ type PopupProps = {
   isOpen: boolean;
   onClose: () => void;
   additionalClassName?: string;
-  children?: ReactNode;
+  children: ReactNode;
 };
 
 export const Popup = ({

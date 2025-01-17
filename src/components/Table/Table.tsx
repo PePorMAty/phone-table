@@ -8,6 +8,7 @@ import { TableTitle } from './components/TableTitle';
 
 interface TableProps {
   data: PhoneType[];
+  replacingItems: PhoneType[];
   tableRows: TableRowsType[];
   handleOnChangeCount: (count: number) => void;
   displayCount: number;
@@ -18,6 +19,7 @@ export const Table = ({
   tableRows,
   handleOnChangeCount,
   displayCount,
+  replacingItems,
 }: TableProps) => {
   const [isShowDifferences, setIsShowDifferences] = useState(false);
   const [filteredRows, setFilteredRows] = useState(tableRows);
@@ -52,6 +54,7 @@ export const Table = ({
         data={data}
         isShowDifferences={isShowDifferences}
         setIsShowDifferences={handleCheckboxToggle}
+        replacingItems={replacingItems}
       />
       <TableBody tableRows={filteredRows} />
     </>

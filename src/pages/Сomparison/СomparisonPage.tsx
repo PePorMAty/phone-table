@@ -6,6 +6,7 @@ import {
   changeDisplayPhonesCount,
   selectDisplayedPhones,
   selectDisplayPhonesCount,
+  selectReplacingPhones,
   selectTableRows,
 } from 'store/slices/phonesSlice/phonesSlice';
 
@@ -18,6 +19,7 @@ export const ComparisonPage = () => {
   const displayedPhones = useAppSelector(selectDisplayedPhones);
   const tableRows = useAppSelector(selectTableRows);
   const displayCount = useAppSelector(selectDisplayPhonesCount);
+  const replacingItems = useAppSelector(selectReplacingPhones);
 
   const dispatch = useAppDispatch();
 
@@ -37,6 +39,7 @@ export const ComparisonPage = () => {
           tableRows={tableRows}
           displayCount={displayCount}
           handleOnChangeCount={handleOnChangeCount}
+          replacingItems={replacingItems}
         />
       </PageContainer>
     </div>

@@ -8,6 +8,7 @@ import styles from './TableHead.module.scss';
 
 interface TableHeadProps {
   data: PhoneType[];
+  replacingItems: PhoneType[];
   isShowDifferences: boolean;
   setIsShowDifferences: (value: boolean) => void;
 }
@@ -16,6 +17,7 @@ export const TableHead = ({
   data,
   isShowDifferences,
   setIsShowDifferences,
+  replacingItems,
 }: TableHeadProps) => {
   const handleShowDifferencesClick = () => {
     setIsShowDifferences(!isShowDifferences);
@@ -36,7 +38,13 @@ export const TableHead = ({
       </div>
       <ul className={commonStyles.tableItems}>
         {data?.map(({ id, image, name }) => (
-          <TableHeadItem key={id} img={image} name={name} altImg={name} />
+          <TableHeadItem
+            key={id}
+            img={image}
+            name={name}
+            altImg={name}
+            replacingItems={replacingItems}
+          />
         ))}
       </ul>
     </div>

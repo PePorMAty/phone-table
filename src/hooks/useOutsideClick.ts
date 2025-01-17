@@ -5,23 +5,23 @@ type Event = MouseEvent | TouchEvent;
 interface useOutsideClickProps<T extends HTMLElement = HTMLElement> {
   ref: RefObject<T>;
   handler: (event: Event) => void;
-  expectElementRef?: RefObject<T>;
+  exceptElementRef?: RefObject<T>;
 }
 
 export const useOutsideClick = ({
   ref,
   handler,
-  expectElementRef,
+  exceptElementRef,
 }: useOutsideClickProps) => {
   useEffect(() => {
     const listener = (event: Event) => {
       const el = ref?.current;
-      const expectEl = expectElementRef?.current;
+      const exceptEl = exceptElementRef?.current;
       const hasElTarget = el?.contains((event?.target as Node) || null);
-      const hasExpectElTarget = expectEl?.contains(
+      const hasExceptElTarget = exceptEl?.contains(
         (event?.target as Node) || null,
       );
-      const shouldNotHandle = !el || hasElTarget || hasExpectElTarget;
+      const shouldNotHandle = !el || hasElTarget || hasExceptElTarget;
 
       if (shouldNotHandle) {
         return;

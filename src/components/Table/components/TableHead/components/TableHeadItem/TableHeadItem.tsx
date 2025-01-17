@@ -1,27 +1,26 @@
 import { useState } from 'react';
 
+import { PhoneType } from 'store/models/phone/phone';
+import { Button } from 'components/Button';
 import { Popup } from 'components/Popup';
+import { ReplacingPopup } from 'components/ReplacingPopup';
+import { OpenPopup } from 'assets/icons/OpenPopup';
 
 import styles from './TableHeadItem.module.scss';
 import commonStyles from '../../../../TableCommonStyles.module.scss';
-import { Button } from 'components/Button';
-import { OpenPopup } from 'assets/icons/OpenPopup';
 
 interface Props {
-  img?: string;
-  name?: string;
+  replacingItems: PhoneType[];
+  img: string;
+  name: string;
   altImg?: string;
 }
 
-export const TableHeadItem = ({ img, name, altImg }: Props) => {
+export const TableHeadItem = ({ img, name, altImg, replacingItems }: Props) => {
   const [isOpenPopup, setIsOpenPopup] = useState(false);
 
-  const onClosePopup = () => {
-    setIsOpenPopup(false);
-  };
-
-  const handleOpenPopup = () => {
-    setIsOpenPopup(true);
+  const handlePopupToggle = () => {
+    setIsOpenPopup((prev) => !prev);
   };
 
   return (
@@ -30,15 +29,14 @@ export const TableHeadItem = ({ img, name, altImg }: Props) => {
         <img className={styles.img} src={img} alt={altImg} />
         <p className={styles.name}>{name}</p>
       </li>
-      {isOpenPopup ? (
-        <Popup isOpen={isOpenPopup} onClose={onClosePopup}>
-          <p>{name}</p>
+      {isOpenPopup && (
+        <Popup isOpen={isOpenPopup} onClose={handlePopupToggle}>
+          <ReplacingPopup replacingItems={replacingItems} />
         </Popup>
-      ) : (
-        <Button className={styles.openPopupBtn} onClick={handleOpenPopup}>
-          <OpenPopup />
-        </Button>
       )}
+      <Button className={styles.openPopupBtn} onClick={handlePopupToggle}>
+        <OpenPopup />
+      </Button>
     </div>
   );
 };
