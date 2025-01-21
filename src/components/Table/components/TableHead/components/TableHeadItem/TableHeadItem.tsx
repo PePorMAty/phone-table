@@ -10,13 +10,20 @@ import styles from './TableHeadItem.module.scss';
 import commonStyles from '../../../../TableCommonStyles.module.scss';
 
 interface Props {
+  id: number;
   replacingItems: PhoneType[];
   img: string;
   name: string;
   altImg?: string;
 }
 
-export const TableHeadItem = ({ img, name, altImg, replacingItems }: Props) => {
+export const TableHeadItem = ({
+  img,
+  name,
+  altImg,
+  replacingItems,
+  id,
+}: Props) => {
   const [isOpenPopup, setIsOpenPopup] = useState(false);
 
   const handlePopupToggle = () => {
@@ -35,7 +42,7 @@ export const TableHeadItem = ({ img, name, altImg, replacingItems }: Props) => {
           onClose={handlePopupToggle}
           additionalClassName={styles.replacingPopup}
         >
-          <ReplacingPopup replacingItems={replacingItems} />
+          <ReplacingPopup replacingItems={replacingItems} cardId={id} />
         </Popup>
       )}
       <Button className={styles.openPopupBtn} onClick={handlePopupToggle}>

@@ -9,6 +9,7 @@ export interface InitialStatePhonesType {
   isLoading: boolean;
   displayPhonesCount: number;
   tableRows: TableRowsType[];
+  replaceItem: PhoneType[];
 }
 
 const initialState: InitialStatePhonesType = {
@@ -16,6 +17,7 @@ const initialState: InitialStatePhonesType = {
   isError: false,
   isLoading: false,
   displayPhonesCount: 3,
+  replaceItem: [],
   tableRows: [
     { rowName: 'model', rowTitle: 'Производитель', rowChars: [] },
     { rowName: 'releaseDate', rowTitle: 'Год релиза', rowChars: [] },
@@ -52,6 +54,29 @@ export const phonesSlice = createSlice({
   reducers: {
     changeDisplayPhonesCount: (state, action) => {
       state.displayPhonesCount = action.payload;
+    },
+    replacePhone: (state, action) => {
+      // Не уверен на счет этого кода, но по-другому сделать не получилось
+      const indexItemToReplace = state.phones.findIndex(
+        (phone) => phone.id === action.payload.cardId,
+      );
+
+      const indexReplacingItem = state.phones.findIndex(
+        (phone) => phone.id === action.payload.id,
+      );
+
+      const itemToReplace = state.phones.find((phone) => {
+        return phone.id === action.payload.id;
+      });
+
+      const replacingItem = state.phones.find((phone) => {
+        return phone.id === action.payload.cardId;
+      });
+
+      if (replacingItem && itemToReplace) {
+        state.phones.splice(indexReplacingItem, 1, replacingItem);
+        state.phones.splice(indexItemToReplace, 1, itemToReplace);
+      }
     },
   },
   selectors: {
@@ -106,7 +131,7 @@ export const phonesSlice = createSlice({
   },
 });
 
-export const { changeDisplayPhonesCount } = phonesSlice.actions;
+export const { changeDisplayPhonesCount, replacePhone } = phonesSlice.actions;
 
 export const {
   selectDisplayedPhones,

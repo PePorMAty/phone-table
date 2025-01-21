@@ -44,6 +44,7 @@ export const TableHead = ({
             name={name}
             altImg={name}
             replacingItems={replacingItems}
+            id={id}
           />
         ))}
       </ul>
