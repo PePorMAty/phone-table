@@ -3,13 +3,14 @@ import { useState } from 'react';
 import { PhoneType } from 'store/models/phone/phone';
 import { Button } from 'components/Button';
 import { Popup } from 'components/Popup';
-import { ReplacingPopup } from 'components/ReplacingPopup';
-import { OpenPopup } from 'assets/icons/OpenPopup';
+import { ArrowDown } from 'assets/icons';
+
+import { ReplacingPopup } from './components/ReplacingPopup';
 
 import styles from './TableHeadItem.module.scss';
 import commonStyles from '../../../../TableCommonStyles.module.scss';
 
-interface Props {
+interface TableHeadItemProps {
   id: number;
   replacingItems: PhoneType[];
   img: string;
@@ -23,11 +24,15 @@ export const TableHeadItem = ({
   altImg,
   replacingItems,
   id,
-}: Props) => {
+}: TableHeadItemProps) => {
   const [isOpenPopup, setIsOpenPopup] = useState(false);
 
-  const handlePopupToggle = () => {
-    setIsOpenPopup((prev) => !prev);
+  const handlePopupClose = () => {
+    setIsOpenPopup(false);
+  };
+
+  const handleOpenPopup = () => {
+    setIsOpenPopup(true);
   };
 
   return (
@@ -36,18 +41,16 @@ export const TableHeadItem = ({
         <img className={styles.img} src={img} alt={altImg} />
         <p className={styles.name}>{name}</p>
       </li>
-      {isOpenPopup && (
-        <Popup
-          isOpen={isOpenPopup}
-          onClose={handlePopupToggle}
-          additionalClassName={styles.replacingPopup}
-        >
-          <ReplacingPopup replacingItems={replacingItems} cardId={id} />
-        </Popup>
-      )}
-      <Button className={styles.openPopupBtn} onClick={handlePopupToggle}>
-        <OpenPopup />
+      <Button className={styles.openPopupBtn} onClick={handleOpenPopup}>
+        <ArrowDown />
       </Button>
+      <Popup
+        isOpen={isOpenPopup}
+        onClose={handlePopupClose}
+        additionalClassName={styles.replacingPopup}
+      >
+        <ReplacingPopup replacingItems={replacingItems} cardId={id} />
+      </Popup>
     </div>
   );
 };

@@ -1,5 +1,4 @@
-import { SuccessIcon } from 'assets/icons/SuccessIcon';
-import { ErrorIcon } from 'assets/icons/ErrorIcon';
+import { ErrorIcon, SuccessIcon } from 'assets/icons';
 
 import commonStyles from '../../../../../../TableCommonStyles.module.scss';
 

@@ -2,8 +2,10 @@ import { ChangeEvent, useEffect, useState } from 'react';
 
 import { useDebounce } from 'hooks';
 import { PhoneType } from 'store/models/phone/phone';
+import { useAppDispatch } from 'store';
+import { replacePhone } from 'store/slices/phonesSlice/phonesSlice';
 
-import { ReplacingItem } from './ReplacingItem';
+import { ReplacingItem } from './components/ReplacingItem';
 
 import styles from './ReplacingPopup.module.scss';
 
@@ -20,16 +22,22 @@ export const ReplacingPopup = ({
   const [filteredReplacingItems, setFilteredReplacingItems] =
     useState(replacingItems);
 
+  const dispatch = useAppDispatch();
   const debouncedSearchValue = useDebounce(searchValue, 500);
 
   const handleOnChangeInput = (e: ChangeEvent<HTMLInputElement>) => {
     setSearchValue(e.target.value);
   };
 
+  const handleReplacePhone = (payload: { id: number; cardId: number }) => {
+    dispatch(replacePhone(payload));
+  };
+
+  const filteredItems = replacingItems.filter((item) =>
+    item.name.toLowerCase().includes(debouncedSearchValue.toLowerCase()),
+  );
+
   useEffect(() => {
-    const filteredItems = replacingItems.filter((item) =>
-      item.name.toLowerCase().includes(debouncedSearchValue.toLowerCase()),
-    );
     setFilteredReplacingItems(filteredItems);
   }, [replacingItems, debouncedSearchValue]);
 
@@ -48,6 +56,7 @@ export const ReplacingPopup = ({
           image={image}
           id={id}
           cardId={cardId}
+          replacePhone={handleReplacePhone}
         />
       ))}
     </div>

@@ -56,7 +56,6 @@ export const phonesSlice = createSlice({
       state.displayPhonesCount = action.payload;
     },
     replacePhone: (state, action) => {
-      // Не уверен на счет этого кода, но по-другому сделать не получилось
       const indexItemToReplace = state.phones.findIndex(
         (phone) => phone.id === action.payload.cardId,
       );
@@ -65,18 +64,13 @@ export const phonesSlice = createSlice({
         (phone) => phone.id === action.payload.id,
       );
 
-      const itemToReplace = state.phones.find((phone) => {
-        return phone.id === action.payload.id;
-      });
+      const newPhones = [...state.phones];
+      const replacedPhone = newPhones[indexItemToReplace];
+      const replacingPhone = newPhones[indexReplacingItem];
 
-      const replacingItem = state.phones.find((phone) => {
-        return phone.id === action.payload.cardId;
-      });
-
-      if (replacingItem && itemToReplace) {
-        state.phones.splice(indexReplacingItem, 1, replacingItem);
-        state.phones.splice(indexItemToReplace, 1, itemToReplace);
-      }
+      newPhones[indexItemToReplace] = replacingPhone;
+      newPhones[indexReplacingItem] = replacedPhone;
+      state.phones = newPhones;
     },
   },
   selectors: {

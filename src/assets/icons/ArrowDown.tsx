@@ -1,4 +1,4 @@
-export const OpenPopup = () => {
+export const ArrowDown = () => {
   return (
     <svg
       width="30"

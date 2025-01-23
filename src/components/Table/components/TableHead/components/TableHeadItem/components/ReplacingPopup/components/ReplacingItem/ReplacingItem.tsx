@@ -1,7 +1,5 @@
-import { useAppDispatch } from 'store';
-import { replacePhone } from 'store/slices/phonesSlice/phonesSlice';
 import { Button } from 'components/Button';
-import ReplaceIcon from 'assets/icons/ReplaceIcon';
+import { ReplaceIcon } from 'assets/icons';
 
 import styles from './ReplacingItem.module.scss';
 
@@ -10,6 +8,7 @@ type ReplacingItemProps = {
   cardId: number;
   name: string;
   image: string;
+  replacePhone: (payload: { id: number; cardId: number }) => void;
 };
 
 export const ReplacingItem = ({
@@ -17,11 +16,10 @@ export const ReplacingItem = ({
   image,
   id,
   cardId,
+  replacePhone,
 }: ReplacingItemProps) => {
-  const dispatch = useAppDispatch();
-
   const handleReplacePhone = (id: number) => {
-    dispatch(replacePhone({ id, cardId }));
+    replacePhone({ id, cardId });
   };
 
   return (
@@ -30,7 +28,7 @@ export const ReplacingItem = ({
         <ReplaceIcon />
       </Button>
       <img src={image} alt={name} className={styles.image} />
-      <p>{name}</p>
+      <p className={styles.text}>{name}</p>
     </div>
   );
 };

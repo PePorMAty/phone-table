@@ -27,10 +27,11 @@
 }
 
 .replacingPopup {
-  width: 421px;
-
+  max-width: 401px;
+  left: 60px;
   & input {
     width: 365px;
+    max-width: 100%;
   }
 }
 

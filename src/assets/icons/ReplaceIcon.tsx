@@ -1,4 +1,4 @@
-export default function ReplaceIcon() {
+export const ReplaceIcon = () => {
   return (
     <svg
       width="20"
@@ -17,4 +17,4 @@ export default function ReplaceIcon() {
       />
     </svg>
   );
-}
+};
