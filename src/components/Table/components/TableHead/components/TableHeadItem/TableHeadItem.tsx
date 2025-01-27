@@ -16,6 +16,7 @@ interface TableHeadItemProps {
   img: string;
   name: string;
   altImg?: string;
+  replacePhone: (payload: { id: number; cardId: number }) => void;
 }
 
 export const TableHeadItem = ({
@@ -24,6 +25,7 @@ export const TableHeadItem = ({
   altImg,
   replacingItems,
   id,
+  replacePhone,
 }: TableHeadItemProps) => {
   const [isOpenPopup, setIsOpenPopup] = useState(false);
 
@@ -49,7 +51,11 @@ export const TableHeadItem = ({
         onClose={handlePopupClose}
         additionalClassName={styles.replacingPopup}
       >
-        <ReplacingPopup replacingItems={replacingItems} cardId={id} />
+        <ReplacingPopup
+          replacingItems={replacingItems}
+          cardId={id}
+          replacePhone={replacePhone}
+        />
       </Popup>
     </div>
   );

@@ -11,6 +11,7 @@ interface TableHeadProps {
   replacingItems: PhoneType[];
   isShowDifferences: boolean;
   setIsShowDifferences: (value: boolean) => void;
+  replacePhone: (payload: { id: number; cardId: number }) => void;
 }
 
 export const TableHead = ({
@@ -18,6 +19,7 @@ export const TableHead = ({
   isShowDifferences,
   setIsShowDifferences,
   replacingItems,
+  replacePhone,
 }: TableHeadProps) => {
   const handleShowDifferencesClick = () => {
     setIsShowDifferences(!isShowDifferences);
@@ -45,6 +47,7 @@ export const TableHead = ({
             altImg={name}
             replacingItems={replacingItems}
             id={id}
+            replacePhone={replacePhone}
           />
         ))}
       </ul>

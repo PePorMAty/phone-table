@@ -2,8 +2,6 @@ import { ChangeEvent, useEffect, useState } from 'react';
 
 import { useDebounce } from 'hooks';
 import { PhoneType } from 'store/models/phone/phone';
-import { useAppDispatch } from 'store';
-import { replacePhone } from 'store/slices/phonesSlice/phonesSlice';
 
 import { ReplacingItem } from './components/ReplacingItem';
 
@@ -12,17 +10,18 @@ import styles from './ReplacingPopup.module.scss';
 type ReplacingPopupProps = {
   replacingItems: PhoneType[];
   cardId: number;
+  replacePhone: (payload: { id: number; cardId: number }) => void;
 };
 
 export const ReplacingPopup = ({
   replacingItems,
   cardId,
+  replacePhone,
 }: ReplacingPopupProps) => {
   const [searchValue, setSearchValue] = useState('');
   const [filteredReplacingItems, setFilteredReplacingItems] =
     useState(replacingItems);
 
-  const dispatch = useAppDispatch();
   const debouncedSearchValue = useDebounce(searchValue, 500);
 
   const handleOnChangeInput = (e: ChangeEvent<HTMLInputElement>) => {
@@ -30,7 +29,7 @@ export const ReplacingPopup = ({
   };
 
   const handleReplacePhone = (payload: { id: number; cardId: number }) => {
-    dispatch(replacePhone(payload));
+    replacePhone(payload);
   };
 
   const filteredItems = replacingItems.filter((item) =>

@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
 
+import { replacePhone } from 'store/slices/phonesSlice/phonesSlice';
+import { useAppDispatch } from 'store';
 import { PhoneType, TableRowsType } from 'store/models/phone/phone';
 
 import { TableBody } from './components/TableBody';
@@ -24,6 +26,8 @@ export const Table = ({
   const [isShowDifferences, setIsShowDifferences] = useState(false);
   const [filteredRows, setFilteredRows] = useState(tableRows);
 
+  const dispatch = useAppDispatch();
+
   useEffect(() => {
     if (!isShowDifferences) {
       setFilteredRows(tableRows);
@@ -44,6 +48,10 @@ export const Table = ({
     setIsShowDifferences((prev) => !prev);
   };
 
+  const handleReplacePhone = (payload: { id: number; cardId: number }) => {
+    dispatch(replacePhone(payload));
+  };
+
   return (
     <>
       <TableTitle
@@ -55,6 +63,7 @@ export const Table = ({
         isShowDifferences={isShowDifferences}
         setIsShowDifferences={handleCheckboxToggle}
         replacingItems={replacingItems}
+        replacePhone={handleReplacePhone}
       />
       <TableBody tableRows={filteredRows} />
     </>
