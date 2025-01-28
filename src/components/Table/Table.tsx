@@ -8,9 +8,11 @@ import { TableTitle } from './components/TableTitle';
 
 interface TableProps {
   data: PhoneType[];
+  replacingItems: PhoneType[];
   tableRows: TableRowsType[];
   handleOnChangeCount: (count: number) => void;
   displayCount: number;
+  replacePhone: (payload: { id: number; cardId: number }) => void;
 }
 
 export const Table = ({
@@ -18,6 +20,8 @@ export const Table = ({
   tableRows,
   handleOnChangeCount,
   displayCount,
+  replacingItems,
+  replacePhone,
 }: TableProps) => {
   const [isShowDifferences, setIsShowDifferences] = useState(false);
   const [filteredRows, setFilteredRows] = useState(tableRows);
@@ -52,6 +56,8 @@ export const Table = ({
         data={data}
         isShowDifferences={isShowDifferences}
         setIsShowDifferences={handleCheckboxToggle}
+        replacingItems={replacingItems}
+        replacePhone={replacePhone}
       />
       <TableBody tableRows={filteredRows} />
     </>

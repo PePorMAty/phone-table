@@ -9,6 +9,7 @@ export interface InitialStatePhonesType {
   isLoading: boolean;
   displayPhonesCount: number;
   tableRows: TableRowsType[];
+  replaceItem: PhoneType[];
 }
 
 const initialState: InitialStatePhonesType = {
@@ -16,6 +17,7 @@ const initialState: InitialStatePhonesType = {
   isError: false,
   isLoading: false,
   displayPhonesCount: 3,
+  replaceItem: [],
   tableRows: [
     { rowName: 'model', rowTitle: 'Производитель', rowChars: [] },
     { rowName: 'releaseDate', rowTitle: 'Год релиза', rowChars: [] },
@@ -53,6 +55,23 @@ export const phonesSlice = createSlice({
     changeDisplayPhonesCount: (state, action) => {
       state.displayPhonesCount = action.payload;
     },
+    replacePhone: (state, action) => {
+      const indexItemToReplace = state.phones.findIndex(
+        (phone) => phone.id === action.payload.cardId,
+      );
+
+      const indexReplacingItem = state.phones.findIndex(
+        (phone) => phone.id === action.payload.id,
+      );
+
+      const newPhones = [...state.phones];
+      const replacedPhone = newPhones[indexItemToReplace];
+      const replacingPhone = newPhones[indexReplacingItem];
+
+      newPhones[indexItemToReplace] = replacingPhone;
+      newPhones[indexReplacingItem] = replacedPhone;
+      state.phones = newPhones;
+    },
   },
   selectors: {
     selectDisplayedPhones: createSelector(
@@ -60,7 +79,7 @@ export const phonesSlice = createSlice({
         (state: InitialStatePhonesType) => state.phones,
         (state: InitialStatePhonesType) => state.displayPhonesCount,
       ],
-      (phones, displayedPhonesCount) => phones.slice(0, displayedPhonesCount),
+      (phones, displayPhonesCount) => phones.slice(0, displayPhonesCount),
     ),
     selectDisplayPhonesCount: createSelector(
       (state: InitialStatePhonesType) => state.displayPhonesCount,
@@ -82,6 +101,13 @@ export const phonesSlice = createSlice({
           rowTitle: row.rowTitle,
         })),
     ),
+    selectReplacingPhones: createSelector(
+      [
+        (state: InitialStatePhonesType) => state.phones,
+        (state: InitialStatePhonesType) => state.displayPhonesCount,
+      ],
+      (phones, displayPhonesCount) => phones.slice(displayPhonesCount),
+    ),
   },
   extraReducers: (builder) => {
     builder.addCase(PhonesService.getPhones.pending, (state) => {
@@ -99,10 +125,11 @@ export const phonesSlice = createSlice({
   },
 });
 
-export const { changeDisplayPhonesCount } = phonesSlice.actions;
+export const { changeDisplayPhonesCount, replacePhone } = phonesSlice.actions;
 
 export const {
   selectDisplayedPhones,
   selectDisplayPhonesCount,
   selectTableRows,
+  selectReplacingPhones,
 } = phonesSlice.selectors;

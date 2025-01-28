@@ -4,8 +4,10 @@ import { useAppDispatch, useAppSelector } from 'store';
 import { PhonesService } from 'api/services/PhonesService';
 import {
   changeDisplayPhonesCount,
+  replacePhone,
   selectDisplayedPhones,
   selectDisplayPhonesCount,
+  selectReplacingPhones,
   selectTableRows,
 } from 'store/slices/phonesSlice/phonesSlice';
 
@@ -18,16 +20,21 @@ export const ComparisonPage = () => {
   const displayedPhones = useAppSelector(selectDisplayedPhones);
   const tableRows = useAppSelector(selectTableRows);
   const displayCount = useAppSelector(selectDisplayPhonesCount);
+  const replacingItems = useAppSelector(selectReplacingPhones);
 
   const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(PhonesService.getPhones());
+  }, []);
 
   const handleOnChangeCount = (count: number) => {
     dispatch(changeDisplayPhonesCount(count));
   };
 
-  useEffect(() => {
-    dispatch(PhonesService.getPhones());
-  }, []);
+  const handleReplacePhone = (payload: { id: number; cardId: number }) => {
+    dispatch(replacePhone(payload));
+  };
 
   return (
     <div className={styles.content}>
@@ -37,6 +44,8 @@ export const ComparisonPage = () => {
           tableRows={tableRows}
           displayCount={displayCount}
           handleOnChangeCount={handleOnChangeCount}
+          replacingItems={replacingItems}
+          replacePhone={handleReplacePhone}
         />
       </PageContainer>
     </div>

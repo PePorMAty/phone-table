@@ -1,3 +1,8 @@
+.wrapper {
+  display: flex;
+  position: relative;
+}
+
 .itemWrapper {
   display: flex;
   flex-direction: column;
@@ -8,9 +13,33 @@
   margin: 0 auto;
   height: 100px;
   width: auto;
+  margin-bottom: 8px;
+}
+
+.imgWrapper {
+  display: flex;
+  justify-content: flex-end;
 }
 
 .name {
   text-align: center;
   padding: 0 5px;
+}
+
+.replacingPopup {
+  max-width: 401px;
+  left: 60px;
+  & input {
+    width: 365px;
+    max-width: 100%;
+  }
+}
+
+.openPopupBtn {
+  cursor: pointer;
+  align-self: center;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
 }
