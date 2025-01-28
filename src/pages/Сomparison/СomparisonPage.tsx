@@ -4,6 +4,7 @@ import { useAppDispatch, useAppSelector } from 'store';
 import { PhonesService } from 'api/services/PhonesService';
 import {
   changeDisplayPhonesCount,
+  replacePhone,
   selectDisplayedPhones,
   selectDisplayPhonesCount,
   selectReplacingPhones,
@@ -23,13 +24,17 @@ export const ComparisonPage = () => {
 
   const dispatch = useAppDispatch();
 
+  useEffect(() => {
+    dispatch(PhonesService.getPhones());
+  }, []);
+
   const handleOnChangeCount = (count: number) => {
     dispatch(changeDisplayPhonesCount(count));
   };
 
-  useEffect(() => {
-    dispatch(PhonesService.getPhones());
-  }, []);
+  const handleReplacePhone = (payload: { id: number; cardId: number }) => {
+    dispatch(replacePhone(payload));
+  };
 
   return (
     <div className={styles.content}>
@@ -40,6 +45,7 @@ export const ComparisonPage = () => {
           displayCount={displayCount}
           handleOnChangeCount={handleOnChangeCount}
           replacingItems={replacingItems}
+          replacePhone={handleReplacePhone}
         />
       </PageContainer>
     </div>
