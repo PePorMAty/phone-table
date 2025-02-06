@@ -14,9 +14,9 @@ import {
 import { PageContainer } from '../../components/PageContainer';
 import { Table } from '../../components/Table';
 
-import styles from './ComparisonPage.module.scss';
+import styles from './PhoneСomparisonPage.module.scss';
 
-export const ComparisonPage = () => {
+export const PhoneСomparisonPage = () => {
   const displayedPhones = useAppSelector(selectDisplayedPhones);
   const tableRows = useAppSelector(selectTableRows);
   const displayCount = useAppSelector(selectDisplayPhonesCount);
