@@ -1,3 +1,3 @@
-import { VideoCardComparisonPage } from "./VideoCardComparisonPage"
+import { VideoCardComparisonPage } from './VideoCardComparisonPage';
 
-export {VideoCardComparisonPage}
+export { VideoCardComparisonPage };
