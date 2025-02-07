@@ -14,7 +14,7 @@ import {
 import { PageContainer } from '../../components/PageContainer';
 import { Table } from '../../components/Table';
 
-import styles from './PhoneСomparisonPage.module.scss';
+import styles from './PhoneComparisonPage.module.scss';
 
 export const PhoneComparisonPage = () => {
   const displayedPhones = useAppSelector(selectDisplayedPhones);
