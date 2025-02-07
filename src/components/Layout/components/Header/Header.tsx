@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 import { ProfileIcon } from '../../../../assets/icons';
 import { PageContainer } from '../../../PageContainer';
 
@@ -14,9 +16,9 @@ export const Header = () => {
           <nav className={styles.nav}>
             <ul className={styles.navList}>
               <li className={styles.item}>
-                <a href="/#" className={styles.link}>
+                <Link to="/comparison" className={styles.link}>
                   СРАВНЕНИЕ
-                </a>
+                </Link>
               </li>
               <li className={styles.item}>
                 <a href="/#" className={styles.linkWithIcon}>

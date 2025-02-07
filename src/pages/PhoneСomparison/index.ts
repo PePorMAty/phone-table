@@ -1,3 +1,3 @@
-import { PhoneСomparisonPage } from './PhoneСomparisonPage';
+export { PhoneComparisonPage } from './PhoneComparisonPage';
 
-export { PhoneСomparisonPage };
+

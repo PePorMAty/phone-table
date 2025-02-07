@@ -16,7 +16,7 @@ import { Table } from '../../components/Table';
 
 import styles from './PhoneСomparisonPage.module.scss';
 
-export const PhoneСomparisonPage = () => {
+export const PhoneComparisonPage = () => {
   const displayedPhones = useAppSelector(selectDisplayedPhones);
   const tableRows = useAppSelector(selectTableRows);
   const displayCount = useAppSelector(selectDisplayPhonesCount);

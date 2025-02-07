@@ -1,19 +1,19 @@
-import { Link, NavLink } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
 import { PageContainer } from 'components/PageContainer'
 
-import styles from './NavBar.module.scss'
+import styles from './Navbar.module.scss'
 
-export const NavBar = () => {
+export const Navbar = () => {
     return (
         <nav className={styles.nav}>
             <PageContainer>
                 <ul className={styles.list}>
                     <li>
-                        <NavLink className={({isActive}) => isActive ? `${styles.item} ${styles.active}` : styles.item} to='/'>Смартфоны</NavLink>
+                        <NavLink className={({isActive}) => isActive ? `${styles.item} ${styles.active}` : styles.item} to='/comparison/phone'>Смартфоны</NavLink>
                     </li>
                     <li>
-                        <NavLink className={({isActive}) => isActive ? `${styles.item} ${styles.active}` : styles.item} to='/videoCardComparison'>Видеокарты</NavLink>
+                        <NavLink className={({isActive}) => isActive ? `${styles.item} ${styles.active}` : styles.item} to='/comparison/videoCard'>Видеокарты</NavLink>
                     </li>
                 </ul>
             </PageContainer>
