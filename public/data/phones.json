@@ -12,7 +12,7 @@
       "screenRefreshRate": "60 Гц",
       "nfc": false,
       "esim": true,
-      "wirelessСharging": true,
+      "wirelessCharging": true,
       "price": "81 990  ₽"
     }
   },
@@ -29,7 +29,7 @@
       "screenRefreshRate": "90 Гц",
       "nfc": true,
       "esim": true,
-      "wirelessСharging": false,
+      "wirelessCharging": false,
       "price": "27 490 ₽"
     }
   },
@@ -46,7 +46,7 @@
       "screenRefreshRate": "90 Гц",
       "nfc": true,
       "esim": false,
-      "wirelessСharging": true,
+      "wirelessCharging": true,
       "price": "32 890 ₽"
     }
   },
@@ -63,7 +63,7 @@
       "screenRefreshRate": "120 Гц",
       "nfc": true,
       "esim": true,
-      "wirelessСharging": true,
+      "wirelessCharging": true,
       "price": "55 299 ₽"
     }
   },
@@ -80,7 +80,7 @@
       "screenRefreshRate": "90 Гц",
       "nfc": true,
       "esim": true,
-      "wirelessСharging": true,
+      "wirelessCharging": true,
       "price": "29 299 ₽"
     }
   },
@@ -97,7 +97,7 @@
       "screenRefreshRate": "60 Гц",
       "nfc": true,
       "esim": true,
-      "wirelessСharging": false,
+      "wirelessCharging": false,
       "price": "9 000 ₽"
     }
   },
@@ -114,7 +114,7 @@
       "screenRefreshRate": "120 Гц",
       "nfc": true,
       "esim": true,
-      "wirelessСharging": false,
+      "wirelessCharging": false,
       "price": "199 990 ₽"
     }
   },
@@ -131,7 +131,7 @@
       "screenRefreshRate": "60 Гц",
       "nfc": false,
       "esim": true,
-      "wirelessСharging": false,
+      "wirelessCharging": false,
       "price": "37 799 ₽"
     }
   }
