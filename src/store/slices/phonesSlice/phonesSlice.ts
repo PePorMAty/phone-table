@@ -40,7 +40,7 @@ const initialState: InitialStatePhonesType = {
     { rowName: 'nfc', rowTitle: 'NFC', rowChars: [] },
     { rowName: 'esim', rowTitle: 'Поддержка eSIM', rowChars: [] },
     {
-      rowName: 'wirelessСharging',
+      rowName: 'wirelessCharging',
       rowTitle: 'Поддержка беспроводной зарядки',
       rowChars: [],
     },

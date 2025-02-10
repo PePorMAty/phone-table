@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 import { ProfileIcon } from '../../../../assets/icons';
 import { PageContainer } from '../../../PageContainer';
@@ -10,21 +10,21 @@ export const Header = () => {
     <header className={styles.header}>
       <PageContainer>
         <div className={styles.wrapper}>
-          <a className={styles.mainLink} href="/#">
+          <NavLink className={styles.mainLink} to={'/'}>
             Каталог
-          </a>
+          </NavLink>
           <nav className={styles.nav}>
             <ul className={styles.navList}>
               <li className={styles.item}>
-                <Link to="/comparison" className={styles.link}>
+                <NavLink to="/comparison" className={styles.link}>
                   СРАВНЕНИЕ
-                </Link>
+                </NavLink>
               </li>
               <li className={styles.item}>
-                <a href="/#" className={styles.linkWithIcon}>
+                <NavLink to="/" className={styles.linkWithIcon}>
                   Личный кабинет
                   <ProfileIcon />
-                </a>
+                </NavLink>
               </li>
             </ul>
           </nav>
