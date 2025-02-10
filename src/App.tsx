@@ -11,7 +11,7 @@ function App() {
   return (
     <Routes>
       <Route element={<Layout />}>
-        <Route path="/" element={<Home />} />
+        <Route index element={<Home />} />
         <Route path="comparison" element={<Comparison />}>
           <Route path="phone" element={<PhoneComparisonPage />} />
           <Route path="videoCard" element={<VideoCardComparisonPage />} />
