@@ -40,7 +40,7 @@ const initialState: InitialStatePhonesType = {
     { rowName: 'nfc', rowTitle: 'NFC', rowChars: [] },
     { rowName: 'esim', rowTitle: 'Поддержка eSIM', rowChars: [] },
     {
-      rowName: 'wirelessСharging',
+      rowName: 'wirelessCharging',
       rowTitle: 'Поддержка беспроводной зарядки',
       rowChars: [],
     },
@@ -80,10 +80,6 @@ export const phonesSlice = createSlice({
         (state: InitialStatePhonesType) => state.displayPhonesCount,
       ],
       (phones, displayPhonesCount) => phones.slice(0, displayPhonesCount),
-    ),
-    selectDisplayPhonesCount: createSelector(
-      (state: InitialStatePhonesType) => state.displayPhonesCount,
-      (displayedPhonesCount) => displayedPhonesCount,
     ),
     selectTableRows: createSelector(
       [
@@ -127,9 +123,5 @@ export const phonesSlice = createSlice({
 
 export const { changeDisplayPhonesCount, replacePhone } = phonesSlice.actions;
 
-export const {
-  selectDisplayedPhones,
-  selectDisplayPhonesCount,
-  selectTableRows,
-  selectReplacingPhones,
-} = phonesSlice.selectors;
+export const { selectDisplayedPhones, selectTableRows, selectReplacingPhones } =
+  phonesSlice.selectors;

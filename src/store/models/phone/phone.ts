@@ -20,7 +20,7 @@ interface CharsType {
   screenRefreshRate: string;
   nfc: boolean;
   esim: boolean;
-  wirelessСharging: boolean;
+  wirelessCharging: boolean;
   price: string;
 }
 
@@ -33,5 +33,5 @@ export type TableRowNameType =
   | 'screenRefreshRate'
   | 'nfc'
   | 'esim'
-  | 'wirelessСharging'
+  | 'wirelessCharging'
   | 'price';
