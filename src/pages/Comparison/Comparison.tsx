@@ -1,6 +1,6 @@
 import { Outlet } from 'react-router-dom';
 
-import { Navbar } from 'components/Layout/components/Navbar';
+import { Navbar } from 'components/Navbar';
 
 export const Comparison = () => {
   return (
