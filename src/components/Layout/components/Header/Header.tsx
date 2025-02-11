@@ -1,6 +1,7 @@
 import { NavLink } from 'react-router-dom';
 
-import { ProfileIcon } from '../../../../assets/icons';
+import { ProfileIcon } from 'assets/icons';
+
 import { PageContainer } from '../../../PageContainer';
 
 import styles from './Header.module.scss';
